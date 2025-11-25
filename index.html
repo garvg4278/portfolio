@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Portfolio of Garv Gupta, Computer Science Engineering student (Batch 2026) focusing on Cybersecurity, DevOps, secure system design, and Linux automation projects.">
+    <meta name="keywords"
+        content="Garv Gupta, cybersecurity student, DevOps, DevSecOps, Chandigarh University, portfolio, Linux automation, secure IoT, blockchain, AI security">
+
+    <!-- Open Graph / Social Preview -->
+    <meta property="og:title" content="Garv Gupta - Cybersecurity & DevOps Portfolio">
+    <meta property="og:description"
+        content="I build secure, automated systems at the intersection of Cybersecurity and DevOps. Explore my projects, skills, and experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="YOUR_DEPLOYED_URL_HERE">
+
+    <title>Garv Gupta - Home</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Garv Gupta<span class="logo-dot"></span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="education.html" class="nav-link">Education</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <p class="hero-greeting">Hi, I'm</p>
+                <h1 class="hero-title">Garv Gupta</h1>
+
+                <p class="hero-subtitle">
+                    I secure and automate systems at the intersection of <strong>Cybersecurity</strong> and
+                    <strong>DevOps</strong>.
+                </p>
+
+                <p class="hero-description">
+                    7th-semester CSE student (Batch 2026) focused on <strong>secure system design</strong>,
+                    <strong>Linux automation</strong>, and <strong>DevSecOps</strong>.
+                    I enjoy breaking systems apart to understand their weaknesses and then rebuilding them to be
+                    resilient.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn btn-primary">See My Work</a>
+                    <a href="assets/Garv_Gupta_Resume.pdf" class="btn btn-secondary" target="_blank"
+                        rel="noopener noreferrer">
+                        Download Resume
+                    </a>
+                </div>
+
+                <div class="hero-socials">
+                    <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <span>•</span>
+                    <a href="https://linkedin.com/in/garv-gupta/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+
+
+                <p class="hero-footnote">
+                    Actively working on: Secure IoT platform (patent pending) · Linux automation · CI/CD &amp;
+                    containerization
+                </p>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="circuit-bg"></div>
+        <div class="container">
+            <div class="page-header fade-in">
+                <h1>About Me</h1>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-image-wrapper slide-up">
+                    <div class="profile-image">
+                        <img src="assets/profile-placeholder.jpg" alt="Garv Gupta Profile Picture" loading="lazy">
+                        <div class="image-border"></div>
+                    </div>
+                </div>
+
+                <div class="about-text slide-up">
+                    <div class="bio-section">
+                        <h2>Who I Am</h2>
+                        <p>
+                            I’m <strong>Garv Gupta</strong>, a Computer Science Engineering student at Chandigarh
+                            University (Batch 2026), focused on <strong>cybersecurity</strong>, <strong>DevOps</strong>,
+                            and <strong>secure system design</strong>.
+                        </p>
+                        <p>
+                            I build things like a patent-pending <strong>Secure IoT platform</strong>, Linux user
+                            management automation scripts, and network configuration simulations always with a “learn
+                            deeply, then build practically” mindset.
+                        </p>
+                        <p>
+                            My long-term goal is to grow into a <strong>DevSecOps &amp; cybersecurity engineer</strong>
+                            who designs systems that are not just functional, but resilient.
+                        </p>
+
+                        <a href="about.html" class="btn btn-secondary" style="margin-top: 1rem;">
+                            More about me
+                        </a>
+                    </div>
+
+                    <div class="interests-section">
+                        <h2>My Interests</h2>
+                        <div class="interest-tags">
+                            <span class="interest-tag">Cybersecurity</span>
+                            <span class="interest-tag">DevOps</span>
+                            <span class="interest-tag">System Automation</span>
+                            <span class="interest-tag">AI in Security</span>
+                            <span class="interest-tag">Cloud Computing</span>
+                        </div>
+                    </div>
+
+                    <div class="goal-section">
+                        <h2>My Goal</h2>
+                        <p class="goal-text">
+                            To become a versatile engineer capable of building secure, scalable, intelligent systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlight-section">
+        <div class="container">
+            <h2 class="section-title">How I Can Add Value</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <h3>Secure Systems</h3>
+                    <p>I design and test systems with security in mind access control, hardening, and basic threat
+                        modeling.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Automation & DevOps</h3>
+                    <p>I write scripts and pipelines that automate provisioning, deployment, and monitoring workflows.
+                    </p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Hands-on Experimentation</h3>
+                    <p>I learn by building: from Linux admin scripts to IoT security prototypes using AI and blockchain
+                        concepts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Education Section -->
+    <section class="education-section">
+        <div class="container">
+            <div class="page-header fade-in">
+                <h1>Education & Certifications</h1>
+                <div class="title-underline"></div>
+            </div>
+
+            <!-- Education Timeline -->
+            <div class="timeline-section">
+                <h2 class="section-title">Academic Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item slide-up">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2022 - 2026</span>
+                            <h3>Bachelor of Engineering</h3>
+                            <h4>Computer Science Engineering</h4>
+                            <p class="institution">Chandigarh University</p>
+                            <p class="description">Focusing on Cybersecurity, DevOps, Software Development, and Data
+                                Analytics. Beyond academics, I actively explore how technology connects with the real
+                                world experimenting with secure system design, automation, and emerging tech that can
+                                create measurable impact.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item slide-up">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2021 - 2022</span>
+                            <h3>Grade 12 (CBSE)</h3>
+                            <h4>PCM</h4>
+                            <p class="institution">Agra Vanasthali Vidyalaya, Agra</p>
+                            <p class="description">Developed academic strength in Physics, Chemistry, and Mathematics.
+                                Those years built my analytical base and shaped my curiosity to explore how engineering
+                                can solve practical challenges and create smarter systems beyond textbooks.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item slide-up">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2019 - 2020</span>
+                            <h3>Grade 10 (CBSE)</h3>
+                            <p class="institution">Delhi Public School, Agra</p>
+                            <p class="description">Developed a strong foundation in Mathematics and Science while
+                                nurturing an early interest in computers and problem-solving. That curiosity soon
+                                evolved into a passion for understanding how technology actually works behind the
+                                scenes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Grid -->
+            <div class="certifications-section">
+                <h2 class="section-title">Professional Certifications</h2>
+
+                <!-- Filter bar -->
+                <!-- <div class="cert-filter">
+                    <label for="certFilter">Filter:</label>
+                    <select id="certFilter">
+                        <option value="all">All</option>
+                        <option value="HackerRank">HackerRank</option>
+                        <option value="Meta">Meta</option>
+                        <option value="University">University</option>
+                    </select>
+                </div> -->
+
+                <div class="certifications-grid">
+
+                    <!-- SQL -->
+                    <div class="cert-card slide-up" data-cert="sql-basic" role="button" tabindex="0"
+                        aria-pressed="false">
+                        <!-- <img src="assets/certs/sql-thumb.jpg" alt="SQL certificate thumbnail" class="cert-thumb"
+                            loading="lazy"> -->
+                        <div class="cert-card-body">
+                            <div class="cert-head">
+                                <div class="cert-icon">🐱</div>
+                                <div>
+                                    <h3>SQL (Intermediate)</h3>
+                                    <p class="cert-issuer">HackerRank · 2023</p>
+                                </div>
+                            </div>
+
+                            <p class="cert-overlay">Database querying, joins, filtering, and relational concepts.</p>
+
+                            <div class="cert-actions" style="justify-content:center;">
+                                <button class="cert-view-btn btn btn-secondary" aria-haspopup="dialog">View</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Python -->
+                    <div class="cert-card slide-up" data-cert="python-basic" role="button" tabindex="0"
+                        aria-pressed="false">
+                        <!-- <img src="assets/certs/python-thumb.jpg" alt="Python certificate thumbnail" class="cert-thumb"
+                            loading="lazy"> -->
+                        <div class="cert-card-body">
+                            <div class="cert-head">
+                                <div class="cert-icon">🐍</div>
+                                <div>
+                                    <h3>Python (Basic)</h3>
+                                    <p class="cert-issuer">HackerRank · 2023</p>
+                                </div>
+                            </div>
+                            <p class="cert-overlay">Core Python programming concepts and applications.</p>
+                            <div class="cert-actions" style="justify-content:center;">
+                                <button class="cert-view-btn btn btn-secondary" data-cert="$1"
+                                    aria-haspopup="dialog">View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problem Solving -->
+                    <div class="cert-card slide-up" data-cert="problem-solving-basic" role="button" tabindex="0"
+                        aria-pressed="false">
+                        <!-- <img src="assets/certs/problem-thumb.jpg" alt="Problem Solving certificate thumbnail"
+                            class="cert-thumb" loading="lazy"> -->
+                        <div class="cert-card-body">
+                            <div class="cert-head">
+                                <div class="cert-icon">🧩</div>
+                                <div>
+                                    <h3>Problem Solving (Basic)</h3>
+                                    <p class="cert-issuer">HackerRank · 2023</p>
+                                </div>
+                            </div>
+                            <p class="cert-overlay">Algorithmic thinking, patterns and basic problem-solving.</p>
+                            <div class="cert-actions" style="justify-content:center;">
+                                <button class="cert-view-btn btn btn-secondary" data-cert="$1"
+                                    aria-haspopup="dialog">View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Negotiation -->
+                    <div class="cert-card slide-up" data-cert="negotiation-michigan" role="button" tabindex="0"
+                        aria-pressed="false">
+                        <!-- <img src="assets/certs/negotiation-thumb.jpg" alt="Negotiation certificate thumbnail"
+                            class="cert-thumb" loading="lazy"> -->
+                        <div class="cert-card-body">
+                            <div class="cert-head">
+                                <div class="cert-icon">🤝</div>
+                                <div>
+                                    <h3>Negotiation</h3>
+                                    <p class="cert-issuer">University of Michigan · 2022</p>
+                                </div>
+                            </div>
+                            <p class="cert-overlay">Professional communication and negotiation strategies.</p>
+                            <div class="cert-actions" style="justify-content:center;">
+                                <button class="cert-view-btn btn btn-secondary" data-cert="$1"
+                                    aria-haspopup="dialog">View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Databases (Meta) -->
+                    <div class="cert-card slide-up" data-cert="meta-databases" role="button" tabindex="0"
+                        aria-pressed="false">
+                        <!-- <img src="assets/certs/databases-thumb.jpg" alt="Databases certificate thumbnail"
+                            class="cert-thumb" loading="lazy"> -->
+                        <div class="cert-card-body">
+                            <div class="cert-head">
+                                <div class="cert-icon">💾</div>
+                                <div>
+                                    <h3>Databases</h3>
+                                    <p class="cert-issuer">Meta · 2024</p>
+                                </div>
+                            </div>
+                            <p class="cert-overlay">Relational design, normalization, and indexing basics.</p>
+                            <div class="cert-actions" style="justify-content:center;">
+                                <button class="cert-view-btn btn btn-secondary" data-cert="$1"
+                                    aria-haspopup="dialog">View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Psychology (Yale) -->
+                    <div class="cert-card slide-up" data-cert="psychology-yale" role="button" tabindex="0"
+                        aria-pressed="false">
+                        <!-- <img src="assets/certs/psychology-thumb.jpg" alt="Psychology certificate thumbnail"
+                            class="cert-thumb" loading="lazy"> -->
+                        <div class="cert-card-body">
+                            <div class="cert-head">
+                                <div class="cert-icon">🧠</div>
+                                <div>
+                                    <h3>Psychology</h3>
+                                    <p class="cert-issuer">Yale University · 2021</p>
+                                </div>
+                            </div>
+                            <p class="cert-overlay">Introduction to cognitive and social psychology.</p>
+                            <div class="cert-actions" style="justify-content:center;">
+                                <button class="cert-view-btn btn btn-secondary" data-cert="$1"
+                                    aria-haspopup="dialog">View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- .certifications-grid -->
+            </div> <!-- .certifications-section -->
+
+        </div>
+    </section>
+
+    <section class="quick-links-section">
+        <div class="container">
+
+            <h2 class="section-title">Featured Highlights</h2>
+
+            <div class="quick-links-grid">
+                <a href="projects.html" class="quick-link-card">
+                    <span class="quick-link-title">🔐 Secure IoT Platform</span>
+                    <span class="quick-link-text">AI + Blockchain based IoT security (patent pending)</span>
+                </a>
+
+                <a href="projects.html" class="quick-link-card">
+                    <span class="quick-link-title">🐧 Linux Automation</span>
+                    <span class="quick-link-text">User management & hardening scripts for sysadmins</span>
+                </a>
+
+                <a href="skills.html" class="quick-link-card">
+                    <span class="quick-link-title">🛠 Tools</span>
+                    <span class="quick-link-text">Docker, Git, Wireshark, Burp Suite & more</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Certification Modal -->
+    <div class="cert-modal" id="certModal" aria-hidden="true">
+        <div class="cert-modal-content">
+            <button class="cert-close-btn" id="certCloseBtn" aria-label="Close certification details">✕</button>
+
+            <h2 id="certTitle">Certification Title</h2>
+            <p class="cert-provider" id="certProvider"></p>
+
+            <div class="cert-details" id="certDetails">
+                <!-- JS will inject details here -->
+            </div>
+
+            <a id="certLink" class="cert-open-btn" href="#" target="_blank" rel="noopener noreferrer">
+                Open Certificate
+            </a>
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Garv Gupta. All Rights Reserved.</p>
+            <button class="back-to-top" id="backToTop" aria-label="Back to top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+            </button>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

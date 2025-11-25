@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Garv Gupta - Computer Science Engineering Student">
+    <title>Garv Gupta - About</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Garv Gupta<span class="logo-dot"></span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="education.html" class="nav-link">Education</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="circuit-bg"></div>
+
+        <div class="container">
+            <div class="page-header fade-in">
+                <h1>About Me</h1>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="about-content">
+                <!-- LEFT: Photo + quick facts -->
+                <aside class="about-image-wrapper slide-up" aria-label="Profile and quick facts">
+                    <div class="profile-image">
+                        <img src="assets/profile-placeholder.jpg"
+                            alt="Garv Gupta — Computer Science student and cybersecurity enthusiast" loading="lazy">
+                        <!-- kept for compatibility but hidden via CSS to remove rotating lines -->
+                        <div class="image-border" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="profile-quick" style="margin-top:1rem; text-align:center;">
+                        <p class="small-muted">Chandigarh University - B.Tech CSE (Batch 2026)</p>
+                        <p class="small-muted">Interests: Cybersecurity, DevOps, Data</p>
+                        <a href="assets/Garv_Gupta_Resume.pdf" class="btn btn-secondary" target="_blank"
+                            rel="noopener noreferrer" style="display:inline-block; margin-top:0.75rem;">
+                            Download Resume
+                        </a>
+                    </div>
+                </aside>
+
+
+                <!-- RIGHT: Bio + highlights -->
+                <div class="about-text slide-up">
+                    <!-- TL;DR -->
+                    <p class="hero-subtitle" style="font-weight:600; margin-bottom:0.5rem;">
+                        I design and secure automated systems focused on Linux automation, DevSecOps pipelines, and
+                        resilient IoT solutions.
+                    </p>
+
+                    <!-- Short bio -->
+                    <div class="bio-short" id="bioShort">
+                        <p>
+                            I’m <strong>Garv Gupta</strong>, a 7th-semester Computer Science Engineering student at
+                            Chandigarh University. I work at the intersection of cybersecurity and DevOps building
+                            automation, protecting systems, and exploring practical security for embedded devices.
+                        </p>
+
+                        <p>
+                            My hands-on projects include a patent-pending Secure IoT platform, Linux user-management
+                            automation scripts, and CI/CD experiments with containerized workflows. I’m driven by
+                            turning theory into repeatable, secure processes.
+                        </p>
+
+                        <!-- strengths -->
+                        <ul class="bio-strengths">
+                            <li><strong>Systems-first:</strong> Linux, networking, and low-level troubleshooting.</li>
+                            <li><strong>Security-aware automation:</strong> scripts, audits, and pipeline hardening.
+                            </li>
+                            <li><strong>Practical research:</strong> prototypes that became reproducible demos.</li>
+                        </ul>
+
+                        <button id="readMoreBtn" class="btn btn-primary" aria-expanded="false">Show more</button>
+                    </div>
+
+                    <!-- Expanded details (hidden by default) -->
+                    <div id="bioMore" class="bio-more" hidden>
+                        <h3>Selected Highlights</h3>
+                        <ul>
+                            <li><strong>Secure IoT Platform (Patent Pending)</strong> - Architected device identity +
+                                distributed auth using blockchain primitives; prototype reduced spoofing vectors in lab
+                                tests.</li>
+                            <li><strong>Linux Automation</strong> - Developed bash tooling for safe user provisioning
+                                with audit logging and rollback; adopted in class lab environments.</li>
+                            <li><strong>CI/CD Experiments</strong> - Built containerized pipelines using Docker and
+                                GitHub Actions for repeatable deployments and automated tests.</li>
+                        </ul>
+
+                        <h3>Tools & Labs</h3>
+                        <p class="small-muted">Kali Linux · Docker · Git · Wireshark · Burp Suite · Power BI · Excel ·
+                            Bash · Python · SQL</p>
+
+
+                        <div style="margin-top:1rem;">
+                            <a href="projects.html" class="btn btn-secondary">See related projects</a>
+                            <a href="contact.html" class="btn btn-primary">Contact me</a>
+                        </div>
+                    </div>
+
+                    <!-- Testimonials -->
+                    <div class="testimonials" aria-label="Testimonials" style="margin-top:2rem;">
+                        <h3 class="section-title" style="font-size:1.2rem;">What people say</h3>
+                        <div class="test-grid">
+                            <blockquote class="test-card">
+                                <p>"Garv's scripting reduced our setup time in labs by half."</p>
+                                <cite>— Lab Instructor</cite>
+                            </blockquote>
+                            <blockquote class="test-card">
+                                <p>"Shows deep curiosity — quickly turns research into functioning demos."</p>
+                                <cite>— Project Mentor</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                </div> <!-- .about-text -->
+            </div> <!-- .about-content -->
+        </div> <!-- .container -->
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Garv Gupta. All Rights Reserved.</p>
+            <button class="back-to-top" id="backToTop" aria-label="Back to top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+            </button>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

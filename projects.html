@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Projects by Garv Gupta — focused on cybersecurity, automation, DevOps, and secure system design.">
+    <title>Garv Gupta - Projects</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Garv Gupta<span class="logo-dot"></span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="education.html" class="nav-link">Education</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="page-header fade-in">
+                <h1>Projects</h1>
+                <div class="title-underline"></div>
+                <p class="page-subtitle">
+                    A mix of hands-on automation work, security-focused projects, and one concept patent exploring
+                    future IoT security.
+                </p>
+            </div>
+
+            <!-- Featured Concept Project -->
+            <section aria-labelledby="featured-project-heading" class="slide-up">
+                <h2 class="section-title" id="featured-project-heading">Featured Concept (Patent Idea)</h2>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🔐</div>
+                        <span class="project-status">Concept · Patent Idea</span>
+                    </div>
+
+                    <h3>Secure IoT Platform (Concept Patent)</h3>
+                    <p class="project-description">
+                        Concept design for an AI + blockchain based security framework for IoT devices.
+                        This work is currently at an <strong>idea / research stage</strong> and forms the basis of a
+                        patent filing —
+                        there is <strong>no full implementation yet</strong>, but the design explores how future systems
+                        could
+                        authenticate, monitor, and protect IoT devices at scale.
+                    </p>
+
+                    <p class="project-description">
+                        <strong>Problem:</strong> Many IoT deployments rely on weak or centralized authentication,
+                        making
+                        them vulnerable to spoofing, tampering, and unauthorized access.
+                    </p>
+                    <p class="project-description">
+                        <strong>Concept Approach:</strong> Use blockchain-style distributed trust for device identity,
+                        AI-based anomaly detection on device behaviour, and signed telemetry to detect and mitigate
+                        malicious activity.
+                    </p>
+                    <p class="project-description">
+                        <strong>Status:</strong> Idea-level patent work in progress; implementation and prototyping are
+                        planned for future research projects.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span class="tech-tag">Concept Design</span>
+                        <span class="tech-tag">IoT Security</span>
+                        <span class="tech-tag">Blockchain</span>
+                        <span class="tech-tag">AI in Security</span>
+                    </div>
+
+                    <a href="contact.html" class="project-link">
+                        Discuss this concept
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Security & Research -->
+            <section aria-labelledby="security-projects-heading" class="slide-up">
+                <h2 class="section-title" id="security-projects-heading">Security & Research</h2>
+
+                <div class="projects-grid">
+                    <!-- Network Security Lab Setup -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">🛡️</div>
+                            <span class="project-status">Lab Project</span>
+                        </div>
+                        <h3>Network Security Lab Configuration</h3>
+                        <p class="project-description">
+                            <strong>Problem:</strong> Security labs often start from an unstructured setup, making it
+                            hard to reproduce experiments or understand attack/defence flows.
+                        </p>
+                        <p class="project-description">
+                            <strong>Approach:</strong> Designed repeatable virtual lab topologies with routers,
+                            firewalls
+                            and vulnerable machines. Documented steps to configure basic firewall rules, port scanning,
+                            and traffic analysis using tools like Wireshark and Nmap.
+                        </p>
+                        <p class="project-description">
+                            <strong>Outcome:</strong> Created a reusable lab environment that can be reset quickly and
+                            used to practice fundamental security concepts and incident tracing.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Networking</span>
+                            <span class="tech-tag">Wireshark</span>
+                            <span class="tech-tag">Nmap</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                        <a href="https://github.com/garvgupta" class="project-link" target="_blank"
+                            rel="noopener noreferrer">
+                            View related configs / notes
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Automation & DevOps -->
+            <section aria-labelledby="automation-projects-heading" class="slide-up">
+                <h2 class="section-title" id="automation-projects-heading">Automation & DevOps</h2>
+
+                <div class="projects-grid">
+                    <!-- Linux User Management Automation -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">🐧</div>
+                            <span class="project-status">Lab Tool</span>
+                        </div>
+                        <h3>Linux User Management Automation</h3>
+                        <p class="project-description">
+                            <strong>Problem:</strong> Creating, updating, and securing user accounts on lab machines
+                            was slow and error-prone when done manually.
+                        </p>
+                        <p class="project-description">
+                            <strong>Approach:</strong> Developed Bash scripts to automate user creation, group
+                            assignment, default directory setup, and basic hardening steps (like SSH restrictions and
+                            sensible default permissions).
+                        </p>
+                        <p class="project-description">
+                            <strong>Outcome:</strong> Reduced manual setup effort for new lab users and made
+                            provisioning more consistent and repeatable across machines.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                        <a href="https://github.com/garvgupta" class="project-link" target="_blank"
+                            rel="noopener noreferrer">
+                            View scripts on GitHub
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Containerized CI/CD Playground -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">⚙️</div>
+                            <span class="project-status">Experiment</span>
+                        </div>
+                        <h3>Containerized CI/CD Playground</h3>
+                        <p class="project-description">
+                            <strong>Problem:</strong> Understanding CI/CD concepts only from theory made it difficult to
+                            see how changes flow from commit to deployment.
+                        </p>
+                        <p class="project-description">
+                            <strong>Approach:</strong> Built a small application and wrapped it in Docker, then
+                            configured GitHub Actions to run tests and build images on every push. Experimented with
+                            simple quality gates and branching strategies.
+                        </p>
+                        <p class="project-description">
+                            <strong>Outcome:</strong> Gained hands-on experience in containerized workflows and how
+                            CI/CD
+                            pipelines enforce consistency and reduce manual deployment steps.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">GitHub Actions</span>
+                            <span class="tech-tag">CI/CD</span>
+                        </div>
+                        <a href="https://github.com/garvgupta" class="project-link" target="_blank"
+                            rel="noopener noreferrer">
+                            View CI/CD playground
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Log Monitoring & Alerts Scripts -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">📊</div>
+                            <span class="project-status">Utility</span>
+                        </div>
+                        <h3>Log Monitoring & Alert Scripts</h3>
+                        <p class="project-description">
+                            <strong>Problem:</strong> Important warnings and errors in log files were easy to miss when
+                            checking them manually.
+                        </p>
+                        <p class="project-description">
+                            <strong>Approach:</strong> Wrote small scripts to parse application and system logs, filter
+                            for key patterns, and summarize potential issues. Experimented with basic email/console
+                            alerts for specific error signatures.
+                        </p>
+                        <p class="project-description">
+                            <strong>Outcome:</strong> Improved visibility into system behaviour during testing and
+                            helped spot recurring issues faster.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">Monitoring</span>
+                        </div>
+                        <a href="https://github.com/garvgupta" class="project-link" target="_blank"
+                            rel="noopener noreferrer">
+                            View utility scripts
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How I Build Projects -->
+            <section class="slide-up" aria-labelledby="how-i-build-heading" style="margin-top: 3rem;">
+                <h2 class="section-title" id="how-i-build-heading">How I Build Projects</h2>
+                <p class="project-description">
+                    Across all of these projects, my process is consistent:
+                </p>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <h3>1. Understand the Problem</h3>
+                        <p>I start by clarifying what is actually slow, insecure, or unreliable in the current setup.
+                        </p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>2. Design the System</h3>
+                        <p>I sketch data flows, failure points, and security concerns before touching code.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>3. Automate & Secure</h3>
+                        <p>I script repetitive steps, add basic checks/logging, and consider how the system can break.
+                        </p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>4. Iterate & Document</h3>
+                        <p>I refine based on real usage, then document enough so others can reuse or extend the work.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Garv Gupta. All Rights Reserved.</p>
+            <button class="back-to-top" id="backToTop" aria-label="Back to top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+            </button>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // set footer year (fallback)
+        (function () {
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+        })();
+    </script>
+</body>
+
+</html>
