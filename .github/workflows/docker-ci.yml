@@ -3,12 +3,11 @@ name: Build and Push Docker Image
 on:
   push:
     branches: [ "main" ]
-  # Allow manual runs from the Actions tab
   workflow_dispatch:
 
 permissions:
   contents: read
-  packages: write   # needed to push to GitHub Container Registry
+  packages: write
 
 jobs:
   build-and-push:
@@ -20,7 +19,7 @@ jobs:
 
       - name: Log in to GitHub Container Registry
         run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
 
       - name: Build and push Docker image
         env:
@@ -29,7 +28,6 @@ jobs:
           echo "Building image..."
           docker build -t $IMAGE_NAME:latest .
 
-          # Tag with short SHA as well
           SHORT_SHA=${GITHUB_SHA::7}
           docker tag $IMAGE_NAME:latest $IMAGE_NAME:$SHORT_SHA
 
