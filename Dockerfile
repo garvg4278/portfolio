@@ -1,6 +1,9 @@
 # Step 1: Use a small official Nginx image
 FROM nginx:alpine
 
+# Link this image to your GitHub repository (for GitHub Container Registry)
+LABEL org.opencontainers.image.source="https://github.com/garvg4278/portfolio"
+
 # Step 2: Remove default nginx static files
 RUN rm -rf /usr/share/nginx/html/*
 
