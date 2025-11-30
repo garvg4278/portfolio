@@ -132,10 +132,4 @@ Then open:
 
 ---
 
-## 📦 Badges
-
-![Docker Image Version](https://ghcr-badge.egpl.dev/garvg4278/garv-portfolio/latest/tag?trim=1)
-
----
-
 Built with curiosity, clarity, and continuous improvement ✨
