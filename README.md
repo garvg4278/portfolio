@@ -1,7 +1,3 @@
-Paste this entire command into **PowerShell or VS Code Terminal (PowerShell mode)** and press Enter:
-
-```
-@'
 # 📌 Garv Gupta — Portfolio Website
 
 A fully responsive and modern portfolio built using **HTML**, **CSS**, and **vanilla JavaScript**, showcasing my background in **Cybersecurity**, **DevOps**, and **Data Analysis**.
