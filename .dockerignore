@@ -1,8 +1,53 @@
+# Git
 .git
 .gitignore
+
+# GitHub Workflows
+.github/
+
+# Docker
 Dockerfile
-README.md
-LICENSE
-node_modules
+.dockerignore
+
+# Node (in case you later add tooling)
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# Logs
 *.log
+logs/
+*.out
+*.err
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts (future-proof)
+dist/
+build/
+out/
+coverage/
+
+# Python virtual env (future-proof)
+venv/
+__pycache__/
+
+# Environment files
+.env
+*.env
+
+# Local notes / personal files
+structure.txt
 sturcture.txt
+notes.txt
+notes/

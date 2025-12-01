@@ -98,53 +98,6 @@ button {
 }
 
 /* ===================================
-   Utility Classes
-   =================================== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeIn 0.8s ease forwards;
-}
-
-.slide-up {
-    animation: slideUp 0.8s ease forwards;
-    opacity: 0;
-}
-
-.slide-up.visible {
-    animation: slideUp 0.8s ease forwards;
-}
-
-/* ===================================
    Navigation Bar
    =================================== */
 .navbar {
@@ -808,103 +761,6 @@ button {
     line-height: 1.6;
 }
 
-
-
-/* ================================
-   Certification Modal (Popup)
-   ================================ */
-
-.cert-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 14, 39, 0.85);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 3000;
-    backdrop-filter: blur(6px);
-}
-
-.cert-modal.active {
-    display: flex;
-}
-
-.cert-modal-content {
-    background: var(--color-bg-card);
-    width: 90%;
-    max-width: 600px;
-    border-radius: 16px;
-    padding: 2rem;
-    border: 1px solid var(--color-border);
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    animation: certFadeInUp 0.3s ease;
-}
-
-@keyframes certFadeInUp {
-    from {
-        transform: translateY(40px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.cert-close-btn {
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    background: transparent;
-    color: var(--color-text-secondary);
-    font-size: 1.4rem;
-    border: none;
-    cursor: pointer;
-    transition: var(--transition-normal);
-}
-
-.cert-close-btn:hover {
-    color: #f87171;
-}
-
-.cert-provider {
-    color: var(--color-secondary);
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-.cert-details {
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-}
-
-.cert-details ul {
-    padding-left: 1.2rem;
-}
-
-.cert-details li {
-    margin-bottom: 0.4rem;
-}
-
-.cert-open-btn {
-    display: inline-block;
-    background: var(--color-primary);
-    color: var(--color-bg-dark);
-    padding: 0.75rem 1.6rem;
-    border-radius: 10px;
-    font-weight: 600;
-    text-align: center;
-    transition: var(--transition-normal);
-}
-
-.cert-open-btn:hover {
-    background: var(--color-secondary);
-}
-
-
-
 /* ===================================
    Projects Section
    =================================== */
@@ -1013,6 +869,146 @@ button {
     color: var(--color-secondary);
     gap: 0.75rem;
 }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+.slide-up.visible {
+    animation: slideUp 0.8s ease forwards;
+}
+
+/* ================================
+   Certification Modal (Popup)
+   ================================ */
+
+.cert-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 14, 39, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    backdrop-filter: blur(6px);
+}
+
+.cert-modal.active {
+    display: flex;
+}
+
+.cert-modal-content {
+    background: var(--color-bg-card);
+    width: 90%;
+    max-width: 600px;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    animation: certFadeInUp 0.3s ease;
+}
+
+@keyframes certFadeInUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cert-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-size: 1.4rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.cert-close-btn:hover {
+    color: #f87171;
+}
+
+.cert-provider {
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.cert-details {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.cert-details ul {
+    padding-left: 1.2rem;
+}
+
+.cert-details li {
+    margin-bottom: 0.4rem;
+}
+
+.cert-open-btn {
+    display: inline-block;
+    background: var(--color-primary);
+    color: var(--color-bg-dark);
+    padding: 0.75rem 1.6rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transition-normal);
+}
+
+.cert-open-btn:hover {
+    background: var(--color-secondary);
+}
+
+
+/*  */
 
 /* ===================================
    Skills Section
@@ -1934,52 +1930,7 @@ button {
     background: none;
 }
 
-/* ===================================
-   Utility Classes
-   =================================== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-}
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeIn 0.8s ease forwards;
-}
-
-.slide-up {
-    animation: slideUp 0.8s ease forwards;
-    opacity: 0;
-}
-
-.slide-up.visible {
-    animation: slideUp 0.8s ease forwards;
-}
 
 /* ===================================
    Navigation Bar
@@ -2541,114 +2492,6 @@ button {
     font-weight: 600;
 }
 
-/* ===================================
-   Projects Section
-   =================================== */
-.projects-section {
-    min-height: 100vh;
-    padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: var(--transition-normal);
-    position: relative;
-    overflow: hidden;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-    transform: scaleX(0);
-    transition: var(--transition-normal);
-}
-
-.project-card:hover {
-    background: var(--color-bg-card-hover);
-    transform: translateY(-8px) rotateX(2deg);
-    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
-}
-
-.project-card:hover::before {
-    transform: scaleX(1);
-}
-
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.project-icon {
-    font-size: 2.5rem;
-}
-
-.project-status {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    color: var(--color-bg-dark);
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.project-card h3 {
-    font-size: 1.5rem;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-}
-
-.project-description {
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-}
-
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.tech-tag {
-    background: rgba(0, 217, 255, 0.1);
-    border: 1px solid var(--color-border);
-    color: var(--color-secondary);
-    padding: 0.4rem 0.8rem;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-family: var(--font-code);
-}
-
-.project-link {
-    color: var(--color-primary);
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: var(--transition-normal);
-}
-
-.project-link:hover {
-    color: var(--color-secondary);
-    gap: 0.75rem;
-}
 
 /* ===================================
    Skills Section

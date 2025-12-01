@@ -183,85 +183,187 @@ const certCloseBtn = document.getElementById("certCloseBtn");
 if (certModal && certCloseBtn && certTitle && certProvider && certDetails && certLink) {
     // 1) Certification data
     const certificationInfo = {
-        "sql-basic": {
+        // Google Cybersecurity (Professional)
+        "google-cybersecurity": {
+            title: "Google Cybersecurity (Professional)",
+            provider: "Google",
+            details: `
+                <ul>
+                    <li>Covered core security concepts: CIA triad, defense-in-depth, and security frameworks.</li>
+                    <li>Hands-on experience with Linux, Python, SIEM tools, and log analysis.</li>
+                    <li>Identifying, investigating, and responding to security incidents.</li>
+                    <li>Working with IDS/IPS, vulnerability management, and risk assessment.</li>
+                </ul>
+            `,
+            link: "https://coursera.org/verify/professional-cert/ULL6I7CMIE9I"
+        },
+
+        // EC-Council Cybersecurity – Cybersecurity Attack & Defense
+        "eccouncil-cyberfundamentals": {
+            title: "Cybersecurity Attack & Defense",
+            provider: "EC-Council",
+            details: `
+                <ul>
+                    <li>Fundamentals of ethical hacking and security assessment.</li>
+                    <li>Common attack vectors, exploits, and defense mechanisms.</li>
+                    <li>Network security, perimeter defense, and security hardening.</li>
+                    <li>Intro to digital forensics and incident response practices.</li>
+                </ul>
+            `,
+            link: "https://coursera.org/verify/specialization/Q9UPMCKAAXX7"
+        },
+
+        // IBM DevOps
+        "ibm-devops": {
+            title: "Introduction to DevOps",
+            provider: "IBM",
+            details: `
+                <ul>
+                    <li>DevOps culture, principles, and collaboration practices.</li>
+                    <li>CI/CD pipelines and automated build–test–deploy workflows.</li>
+                    <li>Version control, issue tracking, and environment management.</li>
+                    <li>Monitoring, feedback loops, and continuous improvement.</li>
+                </ul>
+            `,
+            link: "https://coursera.org/verify/F5ZD04KMUIV2"
+        },
+
+        // NPTEL Cloud · IoT · Edge · ML (Elite)
+        "nptel-cloud-iot": {
+            title: "Cloud · IoT · Edge · ML (Elite)",
+            provider: "IIT Kanpur (NPTEL)",
+            details: `
+                <ul>
+                    <li>Architectures for IoT, edge, and cloud-based systems.</li>
+                    <li>Data pipelines from sensors to cloud and edge devices.</li>
+                    <li>Applying machine learning to IoT/edge scenarios.</li>
+                    <li>Scalability, reliability, and performance considerations.</li>
+                </ul>
+            `,
+            // link: "YOUR_NPTEL_CLOUD_IOT_EDGE_ML_CERTIFICATE_LINK"
+        },
+
+        // IBM Databases & SQL (Honors)
+        "ibm-sql-honors": {
+            title: "Databases & SQL (Honors)",
+            provider: "IBM",
+            details: `
+                <ul>
+                    <li>Writing complex queries using SELECT, WHERE, GROUP BY, HAVING.</li>
+                    <li>Joins, subqueries, set operations, and aggregations.</li>
+                    <li>Transactions, ACID properties, and locking concepts.</li>
+                    <li>Relational modeling and designing normalized schemas.</li>
+                </ul>
+            `,
+            link: "https://coursera.org/verify/W83AX2JYPWJL"
+        },
+
+        // Meta Introduction to Databases
+        "meta-databases": {
+            title: "Introduction to Databases",
+            provider: "Meta",
+            details: `
+                <ul>
+                    <li>Core relational database concepts and terminology.</li>
+                    <li>ERD modeling, keys, and integrity constraints.</li>
+                    <li>Normalization (1NF, 2NF, 3NF) and schema design.</li>
+                    <li>Basics of indexing and query performance considerations.</li>
+                </ul>
+            `,
+            link: "https://coursera.org/verify/KW7L457PM5R4"
+        },
+
+        // HackerRank SQL (Basic & Intermediate)
+        "hackerrank-sql": {
             title: "SQL (Basic & Intermediate)",
             provider: "HackerRank",
             details: `
                 <ul>
-                    <li>SELECT, WHERE, ORDER BY, GROUP BY, HAVING</li>
-                    <li>INNER / LEFT JOIN and basic subqueries</li>
-                    <li>Working with relational schemas and constraints</li>
-                    <li>Writing optimized queries for real-world datasets</li>
+                    <li>SELECT, WHERE, ORDER BY, GROUP BY, HAVING.</li>
+                    <li>INNER/LEFT joins, subqueries, and aggregations.</li>
+                    <li>Working with relational schemas and constraints.</li>
+                    <li>Writing optimized queries on realistic datasets.</li>
                 </ul>
             `,
             link: "https://www.hackerrank.com/certificates/iframe/ff5590a0368d"
         },
-        "python-basic": {
-            title: "Python (Basic)",
-            provider: "HackerRank",
-            details: `
-                <ul>
-                    <li>Variables, data types, loops, conditionals</li>
-                    <li>Lists, tuples, dictionaries and basic operations</li>
-                    <li>Functions, modules and basic file I/O</li>
-                    <li>Solving programming challenges using Python</li>
-                </ul>
-            `,
-            link: "YOUR_PYTHON_CERTIFICATE_LINK"
-        },
-        "problem-solving-basic": {
+
+        // HackerRank Problem Solving (Basic)
+        "hackerrank-problem-solving": {
             title: "Problem Solving (Basic)",
             provider: "HackerRank",
             details: `
                 <ul>
-                    <li>Algorithmic thinking and logical reasoning</li>
-                    <li>Pattern recognition and breaking problems into steps</li>
-                    <li>Time/space tradeoffs at an introductory level</li>
-                    <li>Hands-on challenges using data structures & loops</li>
+                    <li>Algorithmic thinking and logical reasoning skills.</li>
+                    <li>Pattern recognition and stepwise problem decomposition.</li>
+                    <li>Using arrays, strings, and basic data structures.</li>
+                    <li>Introductory analysis of time and space complexity.</li>
                 </ul>
             `,
-            link: "YOUR_PROBLEM_SOLVING_CERTIFICATE_LINK"
+            link: "https://www.hackerrank.com/certificates/f424711b287f"
         },
-        "negotiation-michigan": {
-            title: "Negotiation",
+
+        // HackerRank Python (Basic)
+        "hackerrank-python-basic": {
+            title: "Python (Basic)",
+            provider: "HackerRank",
+            details: `
+                <ul>
+                    <li>Variables, basic data types, and operators.</li>
+                    <li>Control flow: conditionals, loops, and iterations.</li>
+                    <li>Lists, tuples, dictionaries, and common operations.</li>
+                    <li>Functions, simple scripts, and basic problem solving.</li>
+                </ul>
+            `,
+            link: "https://www.hackerrank.com/certificates/70104e33ae38"
+        },
+
+        // Successful Negotiation – University of Michigan
+        "michigan-negotiation": {
+            title: "Successful Negotiation",
             provider: "University of Michigan",
             details: `
                 <ul>
-                    <li>Core negotiation frameworks and strategies</li>
-                    <li>Preparing for negotiations with clear objectives</li>
-                    <li>Finding win–win solutions and handling conflict</li>
-                    <li>Practical case studies and role-play exercises</li>
+                    <li>Structured negotiation frameworks and key phases.</li>
+                    <li>Preparation and setting clear, realistic objectives.</li>
+                    <li>Creating value and finding win–win outcomes.</li>
+                    <li>Managing conflict and closing durable agreements.</li>
                 </ul>
             `,
-            link: "YOUR_NEGOTIATION_CERTIFICATE_LINK"
+            link: "https://coursera.org/verify/YARGC9MFXLTJ"
         },
-        "meta-databases": {
-            title: "Databases",
-            provider: "Meta",
-            details: `
-                <ul>
-                    <li>Relational database concepts and SQL usage</li>
-                    <li>Normalization and schema design</li>
-                    <li>Indexing and query optimization basics</li>
-                    <li>Transactions and consistency concepts</li>
-                </ul>
-            `,
-            link: "YOUR_DATABASE_CERTIFICATE_LINK"
-        },
-        "psychology-yale": {
-            title: "Psychology",
+
+        // Introduction to Psychology – Yale
+        "yale-psychology": {
+            title: "Introduction to Psychology",
             provider: "Yale University",
             details: `
                 <ul>
-                    <li>Foundations of cognitive and social psychology</li>
-                    <li>How perception, memory and emotion shape behavior</li>
-                    <li>Decision-making biases and human motivation</li>
-                    <li>Applications of psychology in real-world contexts</li>
+                    <li>Foundations of cognitive, behavioral, and social psychology.</li>
+                    <li>How perception, memory, and emotion influence behavior.</li>
+                    <li>Personality, motivation, and mental health basics.</li>
+                    <li>Applications of psychology in everyday life and decisions.</li>
                 </ul>
             `,
-            link: "YOUR_PSYCHOLOGY_CERTIFICATE_LINK"
+            link: "https://coursera.org/verify/CNA3P7529ZN3"
+        },
+
+        // Multi-Core Computer Architecture – NPTEL
+        "nptel-multicore": {
+            title: "Multi-Core Computer Architecture",
+            provider: "IIT Guwahati (NPTEL)",
+            details: `
+                <ul>
+                    <li>Basics of parallel architectures and multi-core processors.</li>
+                    <li>Caches, memory hierarchy, and coherence protocols.</li>
+                    <li>Instruction-level, thread-level, and data-level parallelism.</li>
+                    <li>Performance optimization and scalability considerations.</li>
+                </ul>
+            `,
+            // link: "YOUR_NPTEL_MULTICORE_CERTIFICATE_LINK"
         }
     };
+
 
     // 2) Open modal on card click
     document.querySelectorAll(".cert-card").forEach(card => {

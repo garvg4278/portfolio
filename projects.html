@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Projects by Garv Gupta — focused on cybersecurity, automation, DevOps, and secure system design.">
+        content="Projects by Garv Gupta — focused on DevOps, automation, security, data, and full-stack development.">
     <title>Garv Gupta - Projects</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,99 +43,49 @@
                 <h1>Projects</h1>
                 <div class="title-underline"></div>
                 <p class="page-subtitle">
-                    A mix of hands-on automation work, security-focused projects, and one concept patent exploring
-                    future IoT security.
+                    A mix of DevOps, automation, security, data and full-stack projects — with an emphasis on
+                    building things the way they would run in real environments.
                 </p>
             </div>
 
-            <!-- Featured Concept Project -->
-            <section aria-labelledby="featured-project-heading" class="slide-up">
-                <h2 class="section-title" id="featured-project-heading">Featured Concept (Patent Idea)</h2>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">🔐</div>
-                        <span class="project-status">Concept · Patent Idea</span>
-                    </div>
-
-                    <h3>Secure IoT Platform (Concept Patent)</h3>
-                    <p class="project-description">
-                        Concept design for an AI + blockchain based security framework for IoT devices.
-                        This work is currently at an <strong>idea / research stage</strong> and forms the basis of a
-                        patent filing —
-                        there is <strong>no full implementation yet</strong>, but the design explores how future systems
-                        could
-                        authenticate, monitor, and protect IoT devices at scale.
-                    </p>
-
-                    <p class="project-description">
-                        <strong>Problem:</strong> Many IoT deployments rely on weak or centralized authentication,
-                        making
-                        them vulnerable to spoofing, tampering, and unauthorized access.
-                    </p>
-                    <p class="project-description">
-                        <strong>Concept Approach:</strong> Use blockchain-style distributed trust for device identity,
-                        AI-based anomaly detection on device behaviour, and signed telemetry to detect and mitigate
-                        malicious activity.
-                    </p>
-                    <p class="project-description">
-                        <strong>Status:</strong> Idea-level patent work in progress; implementation and prototyping are
-                        planned for future research projects.
-                    </p>
-
-                    <div class="tech-tags">
-                        <span class="tech-tag">Concept Design</span>
-                        <span class="tech-tag">IoT Security</span>
-                        <span class="tech-tag">Blockchain</span>
-                        <span class="tech-tag">AI in Security</span>
-                    </div>
-
-                    <a href="contact.html" class="project-link">
-                        Discuss this concept
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14"></path>
-                            <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Security & Research -->
-            <section aria-labelledby="security-projects-heading" class="slide-up">
-                <h2 class="section-title" id="security-projects-heading">Security & Research</h2>
+            <!-- DevOps & Automation (Top Priority) -->
+            <section aria-labelledby="devops-projects-heading" class="slide-up">
+                <h2 class="section-title" id="devops-projects-heading">DevOps & Automation</h2>
 
                 <div class="projects-grid">
-                    <!-- Network Security Lab Setup -->
+                    <!-- Containerized Portfolio + CI/CD -->
                     <div class="project-card">
                         <div class="project-header">
-                            <div class="project-icon">🛡️</div>
-                            <span class="project-status">Lab Project</span>
+                            <div class="project-icon">🐳</div>
+                            <span class="project-status">Production-ready · CI/CD</span>
                         </div>
-                        <h3>Network Security Lab Configuration</h3>
+                        <h3>Containerized Personal Portfolio with Automated CI/CD</h3>
                         <p class="project-description">
-                            <strong>Problem:</strong> Security labs often start from an unstructured setup, making it
-                            hard to reproduce experiments or understand attack/defence flows.
+                            <strong>Problem:</strong> Even simple websites are often deployed manually, without
+                            versioned images or repeatable deployments.
                         </p>
                         <p class="project-description">
-                            <strong>Approach:</strong> Designed repeatable virtual lab topologies with routers,
-                            firewalls
-                            and vulnerable machines. Documented steps to configure basic firewall rules, port scanning,
-                            and traffic analysis using tools like Wireshark and Nmap.
+                            <strong>Approach:</strong> Built a fully containerized portfolio using
+                            <strong>Docker + Nginx (alpine)</strong>, with a clean <code>Dockerfile</code> and
+                            <code>.dockerignore</code>. Configured <strong>GitHub Actions</strong> to build an image on
+                            every push to <code>main</code>, tag it as <code>latest</code> and with the short commit
+                            SHA, and push it to <strong>GitHub Container Registry (GHCR)</strong>.
                         </p>
                         <p class="project-description">
-                            <strong>Outcome:</strong> Created a reusable lab environment that can be reset quickly and
-                            used to practice fundamental security concepts and incident tracing.
+                            <strong>Outcome:</strong> Treats the portfolio as a real DevOps project: every commit
+                            produces a versioned, registry-hosted image that can be pulled and run anywhere with
+                            <code>docker run</code>. This demonstrates end-to-end CI (build, tag, push) and
+                            container-based delivery.
                         </p>
                         <div class="tech-tags">
-                            <span class="tech-tag">Networking</span>
-                            <span class="tech-tag">Wireshark</span>
-                            <span class="tech-tag">Nmap</span>
-                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Nginx</span>
+                            <span class="tech-tag">GitHub Actions</span>
+                            <span class="tech-tag">GHCR</span>
                         </div>
-                        <a href="https://github.com/garvgupta" class="project-link" target="_blank"
+                        <a href="https://github.com/garvg4278/portfolio" class="project-link" target="_blank"
                             rel="noopener noreferrer">
-                            View related configs / notes
+                            View code & workflow on GitHub
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -144,14 +94,7 @@
                             </svg>
                         </a>
                     </div>
-                </div>
-            </section>
 
-            <!-- Automation & DevOps -->
-            <section aria-labelledby="automation-projects-heading" class="slide-up">
-                <h2 class="section-title" id="automation-projects-heading">Automation & DevOps</h2>
-
-                <div class="projects-grid">
                     <!-- Linux User Management Automation -->
                     <div class="project-card">
                         <div class="project-header">
@@ -160,24 +103,24 @@
                         </div>
                         <h3>Linux User Management Automation</h3>
                         <p class="project-description">
-                            <strong>Problem:</strong> Creating, updating, and securing user accounts on lab machines
-                            was slow and error-prone when done manually.
+                            <strong>Problem:</strong> Manually onboarding users on lab machines (creating accounts,
+                            groups, home directories, and basic security) was slow and inconsistent.
                         </p>
                         <p class="project-description">
-                            <strong>Approach:</strong> Developed Bash scripts to automate user creation, group
-                            assignment, default directory setup, and basic hardening steps (like SSH restrictions and
-                            sensible default permissions).
+                            <strong>Approach:</strong> Wrote Bash scripts to automate user creation, group assignment,
+                            default directory structure, and simple hardening (SSH restrictions, sane default
+                            permissions).
                         </p>
                         <p class="project-description">
-                            <strong>Outcome:</strong> Reduced manual setup effort for new lab users and made
-                            provisioning more consistent and repeatable across machines.
+                            <strong>Outcome:</strong> Turned a multi-step manual process into a repeatable script that
+                            saves time and keeps machines in a consistent state.
                         </p>
                         <div class="tech-tags">
                             <span class="tech-tag">Bash</span>
                             <span class="tech-tag">Linux</span>
                             <span class="tech-tag">Automation</span>
                         </div>
-                        <a href="https://github.com/garvgupta" class="project-link" target="_blank"
+                        <a href="https://github.com/garvg4278" class="project-link" target="_blank"
                             rel="noopener noreferrer">
                             View scripts on GitHub
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -189,45 +132,7 @@
                         </a>
                     </div>
 
-                    <!-- Containerized CI/CD Playground -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">⚙️</div>
-                            <span class="project-status">Experiment</span>
-                        </div>
-                        <h3>Containerized CI/CD Playground</h3>
-                        <p class="project-description">
-                            <strong>Problem:</strong> Understanding CI/CD concepts only from theory made it difficult to
-                            see how changes flow from commit to deployment.
-                        </p>
-                        <p class="project-description">
-                            <strong>Approach:</strong> Built a small application and wrapped it in Docker, then
-                            configured GitHub Actions to run tests and build images on every push. Experimented with
-                            simple quality gates and branching strategies.
-                        </p>
-                        <p class="project-description">
-                            <strong>Outcome:</strong> Gained hands-on experience in containerized workflows and how
-                            CI/CD
-                            pipelines enforce consistency and reduce manual deployment steps.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">GitHub Actions</span>
-                            <span class="tech-tag">CI/CD</span>
-                        </div>
-                        <a href="https://github.com/garvgupta" class="project-link" target="_blank"
-                            rel="noopener noreferrer">
-                            View CI/CD playground
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- Log Monitoring & Alerts Scripts -->
+                    <!-- Log Monitoring & Alert Scripts -->
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-icon">📊</div>
@@ -235,24 +140,24 @@
                         </div>
                         <h3>Log Monitoring & Alert Scripts</h3>
                         <p class="project-description">
-                            <strong>Problem:</strong> Important warnings and errors in log files were easy to miss when
-                            checking them manually.
+                            <strong>Problem:</strong> Important warnings and errors in log files were getting missed
+                            when checking them manually.
                         </p>
                         <p class="project-description">
-                            <strong>Approach:</strong> Wrote small scripts to parse application and system logs, filter
-                            for key patterns, and summarize potential issues. Experimented with basic email/console
-                            alerts for specific error signatures.
+                            <strong>Approach:</strong> Implemented small Bash/Python utilities to parse system and
+                            application logs, filter key patterns, and summarize issues. Experimented with simple alerts
+                            (console / email-style) for critical signatures.
                         </p>
                         <p class="project-description">
-                            <strong>Outcome:</strong> Improved visibility into system behaviour during testing and
-                            helped spot recurring issues faster.
+                            <strong>Outcome:</strong> Made it easier to spot recurring problems and understand system
+                            behaviour during testing, similar to a very lightweight log-monitoring setup.
                         </p>
                         <div class="tech-tags">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Bash</span>
                             <span class="tech-tag">Monitoring</span>
                         </div>
-                        <a href="https://github.com/garvgupta" class="project-link" target="_blank"
+                        <a href="https://github.com/garvg4278" class="project-link" target="_blank"
                             rel="noopener noreferrer">
                             View utility scripts
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -266,31 +171,228 @@
                 </div>
             </section>
 
+            <!-- Security & Research -->
+            <section aria-labelledby="security-projects-heading" class="slide-up">
+                <h2 class="section-title" id="security-projects-heading">Security & Research</h2>
+
+                <div class="projects-grid">
+                    <!-- Secure Decentralized IoT Platform (Patent Idea) -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">🔐</div>
+                            <span class="project-status">Patent Idea · Research</span>
+                        </div>
+                        <h3>Secure, Adaptive & Decentralized IoT Platform</h3>
+                        <p class="project-description">
+                            Concept design for a next-generation IoT security platform that combines
+                            <strong>decentralized identity, blockchain auditability, federated learning
+                                governance</strong>
+                            and <strong>privacy-preserving data erasure</strong>.
+                        </p>
+                        <p class="project-description">
+                            The architecture proposes a protocol-agnostic security mesh, DID-based device onboarding,
+                            on-chain governed federated learning, SBOM-aware secure updates, and smart-contract driven
+                            incident response – designed to handle real-world constraints like GDPR “right to be
+                            forgotten”.
+                        </p>
+                        <p class="project-description">
+                            <strong>Status:</strong> Patent-pending concept; currently at detailed design and research
+                            stage, planned for future prototyping.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">IoT Security</span>
+                            <span class="tech-tag">Blockchain</span>
+                            <span class="tech-tag">Federated Learning</span>
+                            <span class="tech-tag">DID</span>
+                        </div>
+                        <a href="contact.html" class="project-link">
+                            Discuss this research concept
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Applications & Platforms -->
+            <section aria-labelledby="apps-projects-heading" class="slide-up">
+                <h2 class="section-title" id="apps-projects-heading">Applications & Platforms</h2>
+
+                <div class="projects-grid">
+                    <!-- Exam Eligibility Finder -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">📘</div>
+                            <span class="project-status">React · Deployed</span>
+                        </div>
+                        <h3>Exam Eligibility Finder</h3>
+                        <p class="project-description">
+                            <strong>Problem:</strong> Students often struggle to understand long eligibility PDFs and
+                            guidelines for competitive exams.
+                        </p>
+                        <p class="project-description">
+                            <strong>Approach:</strong> Built a fast <strong>React + Vite</strong> web tool where
+                            students enter basic academic details and instantly see if they are Eligible, Not Eligible,
+                            or Conditionally Eligible, along with clear explanations of the rules.
+                        </p>
+                        <p class="project-description">
+                            <strong>Outcome:</strong> A clean, mobile-friendly tool that wraps complex criteria into a
+                            simple UI. Uses a production-grade multi-stage Docker build (Node builder + Nginx runner) to
+                            ship an optimized static bundle.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Vite</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <a href="https://github.com/garvg4278/Exam-Eligibility-Finder" class="project-link"
+                            target="_blank" rel="noopener noreferrer">
+                            View repository
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- DSA Visualization Platform -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">📊</div>
+                            <span class="project-status">Full-Stack</span>
+                        </div>
+                        <h3>DSA Visualization – Interactive Algorithm Learning</h3>
+                        <p class="project-description">
+                            A full-stack educational platform that visualizes 40+ data-structure and algorithm concepts
+                            (sorting, searching, graphs, DP, and more) using <strong>D3.js</strong> animations.
+                        </p>
+                        <p class="project-description">
+                            Built with <strong>Node.js, Express, MongoDB, Passport auth and EJS templates</strong>,
+                            it includes login/registration, a visitor counter, chatbot assistance, testimonial sections,
+                            and rich visualizations that show algorithms step-by-step rather than as static text.
+                        </p>
+                        <p class="project-description">
+                            <strong>Outcome:</strong> A production-style learning platform suitable for students,
+                            coaching centers, or self-study.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">D3.js</span>
+                        </div>
+                        <a href="https://github.com/garvg4278/DSA_Visualization" class="project-link" target="_blank"
+                            rel="noopener noreferrer">
+                            View repository
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- AI Interior Design Platform -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">🧠</div>
+                            <span class="project-status">AI · Research Implementation</span>
+                        </div>
+                        <h3>AI-Powered Interior Design Platform</h3>
+                        <p class="project-description">
+                            <strong>Problem:</strong> Interior design is slow and inaccessible; most users have to rely
+                            on static inspiration boards or manual design services.
+                        </p>
+                        <p class="project-description">
+                            <strong>Approach:</strong> Built a full-stack <strong>Next.js</strong> platform where users
+                            upload a room photo, choose room type and style, and get AI-generated redesigns. The system
+                            integrates <strong>Clerk auth, Neon Postgres (via Drizzle ORM), Firebase Storage, and
+                                Replicate AI</strong> for image-to-image generation, plus a credit system and dashboard.
+                        </p>
+                        <p class="project-description">
+                            <strong>Outcome:</strong> A research-driven implementation of multimodal, AI-assisted
+                            interior design, presented at an academic conference and built with a production-ready
+                            architecture (serverless DB, cloud storage, secure auth).
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">AI / Replicate</span>
+                            <span class="tech-tag">Neon + Drizzle</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        <a href="contact.html" class="project-link">
+                            Ask about this project / paper
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Airline Flights Analysis Dashboard -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">📈</div>
+                            <span class="project-status">Data Analytics</span>
+                        </div>
+                        <h3>Airline Flights Analysis Dashboard</h3>
+                        <p class="project-description">
+                            A data-driven dashboard that analyzes airline performance, delays, route demand and airport
+                            congestion to reveal operational patterns that are hard to see in raw spreadsheets.
+                        </p>
+                        <p class="project-description">
+                            Worked with large flight datasets, cleaning and engineering features such as delay
+                            categories, route identifiers and congestion metrics. Built interactive visuals (e.g. delay
+                            heatmaps, route performance, airline comparisons) using BI tooling and DAX-style measures.
+                        </p>
+                        <p class="project-description">
+                            <strong>Outcome:</strong> Turns complex airline operations into actionable insights for
+                            planners and analysts.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Dashboards</span>
+                            <span class="tech-tag">Power BI / Excel</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- How I Build Projects -->
             <section class="slide-up" aria-labelledby="how-i-build-heading" style="margin-top: 3rem;">
                 <h2 class="section-title" id="how-i-build-heading">How I Build Projects</h2>
                 <p class="project-description">
-                    Across all of these projects, my process is consistent:
+                    Whether it’s a small Bash script or a full AI platform, my approach stays consistent:
                 </p>
                 <div class="highlight-grid">
                     <div class="highlight-card">
-                        <h3>1. Understand the Problem</h3>
-                        <p>I start by clarifying what is actually slow, insecure, or unreliable in the current setup.
-                        </p>
+                        <h3>1. Start from a real problem</h3>
+                        <p>I focus on what is actually slow, confusing or unreliable for users or teams, and turn that
+                            into a clear problem statement.</p>
                     </div>
                     <div class="highlight-card">
-                        <h3>2. Design the System</h3>
-                        <p>I sketch data flows, failure points, and security concerns before touching code.</p>
+                        <h3>2. Design before code</h3>
+                        <p>I sketch flows, failure points, data paths and security concerns so the solution is
+                            structured, not just a quick script.</p>
                     </div>
                     <div class="highlight-card">
-                        <h3>3. Automate & Secure</h3>
-                        <p>I script repetitive steps, add basic checks/logging, and consider how the system can break.
-                        </p>
+                        <h3>3. Automate and observe</h3>
+                        <p>I automate repetitive steps (scripts, Docker, CI/CD) and add logs/visibility so issues are
+                            easy to detect and debug later.</p>
                     </div>
                     <div class="highlight-card">
-                        <h3>4. Iterate & Document</h3>
-                        <p>I refine based on real usage, then document enough so others can reuse or extend the work.
-                        </p>
+                        <h3>4. Iterate, document, share</h3>
+                        <p>I refine based on real usage, document the setup, and keep things in Git so others can run,
+                            reuse, or extend the work easily.</p>
                     </div>
                 </div>
             </section>
