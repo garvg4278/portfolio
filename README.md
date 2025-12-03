@@ -128,7 +128,7 @@ Then open:
 
 ## 🔗 Live Link
 
-➡ `https://garv-gupta-portfolio.bytexl.live/`
+➡ [Garv Gupta's Portfolio](https://garv-gupta-portfolio.bytexl.live/)
 
 ---
 
