@@ -128,7 +128,7 @@ Then open:
 
 ## 🔗 Live Link
 
-➡ *(Add after Netlify deployment)*
+➡ `https://garv-gupta-portfolio.bytexl.live/`
 
 ---
 
