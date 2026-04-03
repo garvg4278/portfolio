@@ -1,426 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Projects by Garv Gupta — focused on DevOps, automation, security, data, and full-stack development.">
+    <meta name="description" content="Projects by Garv Gupta - DevOps, containerized full-stack systems, data engineering pipelines, and automation.">
     <title>Garv Gupta - Projects</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">Garv Gupta<span class="logo-dot"></span></a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="education.html" class="nav-link">Education</a></li>
-                <li><a href="projects.html" class="nav-link active">Projects</a></li>
-                <li><a href="skills.html" class="nav-link">Skills</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Projects Section -->
-    <section class="projects-section">
-        <div class="container">
-            <div class="page-header fade-in">
-                <h1>Projects</h1>
-                <div class="title-underline"></div>
-                <p class="page-subtitle">
-                    A mix of DevOps, automation, security, data and full-stack projects — with an emphasis on
-                    building things the way they would run in real environments.
-                </p>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">garv<span>.gupta</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">home</a></li>
+            <li><a href="about.html" class="nav-link">about</a></li>
+            <li><a href="education.html" class="nav-link">education</a></li>
+            <li><a href="projects.html" class="nav-link active">projects</a></li>
+            <li><a href="skills.html" class="nav-link">skills</a></li>
+            <li><a href="contact.html" class="nav-link">contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="projects-section">
+    <div class="container">
+        <div class="page-header fade-in">
+            <div class="page-label">// portfolio</div>
+            <h1>Projects</h1>
+            <p>Systems built to solve real problems. Each one follows a structure: problem, approach, measurable outcome. That is how engineers think.</p>
+        </div>
+
+        <!-- GROUP 1: FLAGSHIP -->
+        <div class="project-group" id="inventory">
+            <div class="project-group-title"><span class="g-accent">01</span> Full-Stack Systems</div>
+
+            <!-- FLAGSHIP: Inventory System -->
+            <div class="flagship-card">
+                <div class="flagship-badge">Flagship Project</div>
+                <h3>Dockerized Inventory and Workflow Management System</h3>
+                <div class="project-meta">
+                    <span class="tag tag-green">Full-Stack</span>
+                    <span class="tag tag-blue">Containerized</span>
+                    <span class="tag tag-orange">Production-Ready</span>
+                </div>
+
+                <div class="pim-row">
+                    <div class="pim-label">Problem</div>
+                    <p>Manual inventory tracking caused delays, no visibility into request status, and no access control between roles. Teams had no centralized system to manage stock and workflow requests.</p>
+                </div>
+                <div class="pim-row">
+                    <div class="pim-label">Approach</div>
+                    <p>Built a full-stack system with role-based access control separating admin and user capabilities, JWT authentication for secure sessions, Prisma ORM for structured data access on PostgreSQL, and complete containerization of both frontend and backend services using Docker Compose.</p>
+                </div>
+                <div class="pim-row">
+                    <div class="pim-label">Impact</div>
+                    <p>Automated workflow request handling, gave admins real-time inventory visibility, and eliminated manual hand-off bottlenecks. The architecture is portable - runs identically in any environment with one command.</p>
+                </div>
+
+                <div class="flagship-arch">
+                    <span class="arch-node">React Frontend</span>
+                    <span class="arch-arrow">-&gt;</span>
+                    <span class="arch-node">Express API</span>
+                    <span class="arch-arrow">-&gt;</span>
+                    <span class="arch-node">Prisma ORM</span>
+                    <span class="arch-arrow">-&gt;</span>
+                    <span class="arch-node">PostgreSQL</span>
+                    <span class="arch-arrow">//</span>
+                    <span class="arch-node">JWT Auth</span>
+                    <span class="arch-arrow">+</span>
+                    <span class="arch-node">RBAC Layer</span>
+                    <span class="arch-arrow">+</span>
+                    <span class="arch-node">Docker Compose</span>
+                </div>
+
+                <div class="flagship-footer">
+                    <div class="tech-stack">
+                        <span class="tag tag-green">Docker</span>
+                        <span class="tag tag-green">Node.js</span>
+                        <span class="tag tag-green">Express</span>
+                        <span class="tag tag-green">React</span>
+                        <span class="tag tag-green">Prisma ORM</span>
+                        <span class="tag tag-green">PostgreSQL</span>
+                        <span class="tag tag-green">JWT</span>
+                        <span class="tag tag-green">RBAC</span>
+                    </div>
+                    <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        View on GitHub
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
             </div>
 
-            <!-- DevOps & Automation (Top Priority) -->
-            <section aria-labelledby="devops-projects-heading" class="slide-up">
-                <h2 class="section-title" id="devops-projects-heading">DevOps & Automation</h2>
+            <!-- Logistics (In Progress) -->
+            <div class="flagship-card" id="logistics">
+                <div class="flagship-badge" style="color:var(--color-warn);border-color:rgba(255,209,102,0.28);background:rgba(255,209,102,0.05);">In Progress</div>
+                <h3>Logistics Shipment Management System</h3>
+                <div class="project-meta">
+                    <span class="tag tag-yellow">Active Build</span>
+                    <span class="tag tag-blue">RBAC</span>
+                    <span class="tag tag-blue">Backend-Heavy</span>
+                </div>
 
-                <div class="projects-grid">
-                    <!-- Containerized Portfolio + CI/CD -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">🐳</div>
-                            <span class="project-status">Production-ready · CI/CD</span>
-                        </div>
-                        <h3>Containerized Personal Portfolio with Automated CI/CD</h3>
-                        <p class="project-description">
-                            <strong>Problem:</strong> Even simple websites are often deployed manually, without
-                            versioned images or repeatable deployments.
-                        </p>
-                        <p class="project-description">
-                            <strong>Approach:</strong> Built a fully containerized portfolio using
-                            <strong>Docker + Nginx (alpine)</strong>, with a clean <code>Dockerfile</code> and
-                            <code>.dockerignore</code>. Configured <strong>GitHub Actions</strong> to build an image on
-                            every push to <code>main</code>, tag it as <code>latest</code> and with the short commit
-                            SHA, and push it to <strong>GitHub Container Registry (GHCR)</strong>.
-                        </p>
-                        <p class="project-description">
-                            <strong>Outcome:</strong> Treats the portfolio as a real DevOps project: every commit
-                            produces a versioned, registry-hosted image that can be pulled and run anywhere with
-                            <code>docker run</code>. This demonstrates end-to-end CI (build, tag, push) and
-                            container-based delivery.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Nginx</span>
-                            <span class="tech-tag">GitHub Actions</span>
-                            <span class="tech-tag">GHCR</span>
-                        </div>
-                        <a href="https://github.com/garvg4278/portfolio" class="project-link" target="_blank"
-                            rel="noopener noreferrer">
-                            View code & workflow on GitHub
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+                <div class="pim-row">
+                    <div class="pim-label">Problem</div>
+                    <p>Logistics operations involve multiple stakeholders (dispatchers, drivers, managers) with different data access needs. Building a system that enforces those access boundaries while keeping shipment state accurate is a non-trivial backend challenge.</p>
+                </div>
+                <div class="pim-row">
+                    <div class="pim-label">Approach</div>
+                    <p>Designing the backend with structured RBAC from the database schema up, using normalized PostgreSQL tables for shipment events, route tracking, and user roles. The API layer enforces permissions at the middleware level before any data access occurs.</p>
+                </div>
+                <div class="pim-row">
+                    <div class="pim-label">Current Status</div>
+                    <p>Database schema and API design complete. Auth layer and role enforcement implemented. Frontend and containerization in progress.</p>
+                </div>
 
-                    <!-- Linux User Management Automation -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">🐧</div>
-                            <span class="project-status">Lab Tool</span>
-                        </div>
-                        <h3>Linux User Management Automation</h3>
-                        <p class="project-description">
-                            <strong>Problem:</strong> Manually onboarding users on lab machines (creating accounts,
-                            groups, home directories, and basic security) was slow and inconsistent.
-                        </p>
-                        <p class="project-description">
-                            <strong>Approach:</strong> Wrote Bash scripts to automate user creation, group assignment,
-                            default directory structure, and simple hardening (SSH restrictions, sane default
-                            permissions).
-                        </p>
-                        <p class="project-description">
-                            <strong>Outcome:</strong> Turned a multi-step manual process into a repeatable script that
-                            saves time and keeps machines in a consistent state.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Bash</span>
-                            <span class="tech-tag">Linux</span>
-                            <span class="tech-tag">Automation</span>
-                        </div>
-                        <a href="https://github.com/garvg4278" class="project-link" target="_blank"
-                            rel="noopener noreferrer">
-                            View scripts on GitHub
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
+                <div class="flagship-arch">
+                    <span class="arch-node">Role-Based Auth</span>
+                    <span class="arch-arrow">-&gt;</span>
+                    <span class="arch-node">Express API</span>
+                    <span class="arch-arrow">-&gt;</span>
+                    <span class="arch-node">PostgreSQL</span>
+                    <span class="arch-arrow">//</span>
+                    <span class="arch-node">Shipment State Machine</span>
+                    <span class="arch-arrow">+</span>
+                    <span class="arch-node">Route Tracking</span>
+                </div>
 
-                    <!-- Log Monitoring & Alert Scripts -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">📊</div>
-                            <span class="project-status">Utility</span>
-                        </div>
-                        <h3>Log Monitoring & Alert Scripts</h3>
-                        <p class="project-description">
-                            <strong>Problem:</strong> Important warnings and errors in log files were getting missed
-                            when checking them manually.
-                        </p>
-                        <p class="project-description">
-                            <strong>Approach:</strong> Implemented small Bash/Python utilities to parse system and
-                            application logs, filter key patterns, and summarize issues. Experimented with simple alerts
-                            (console / email-style) for critical signatures.
-                        </p>
-                        <p class="project-description">
-                            <strong>Outcome:</strong> Made it easier to spot recurring problems and understand system
-                            behaviour during testing, similar to a very lightweight log-monitoring setup.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Bash</span>
-                            <span class="tech-tag">Monitoring</span>
-                        </div>
-                        <a href="https://github.com/garvg4278" class="project-link" target="_blank"
-                            rel="noopener noreferrer">
-                            View utility scripts
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
+                <div class="flagship-footer">
+                    <div class="tech-stack">
+                        <span class="tag tag-yellow">Node.js</span>
+                        <span class="tag tag-yellow">PostgreSQL</span>
+                        <span class="tag tag-yellow">RBAC</span>
+                        <span class="tag tag-yellow">JWT</span>
+                        <span class="tag tag-yellow">Docker</span>
                     </div>
                 </div>
-            </section>
-
-            <!-- Security & Research -->
-            <section aria-labelledby="security-projects-heading" class="slide-up">
-                <h2 class="section-title" id="security-projects-heading">Security & Research</h2>
-
-                <div class="projects-grid">
-                    <!-- Secure Decentralized IoT Platform (Patent Idea) -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">🔐</div>
-                            <span class="project-status">Patent Idea · Research</span>
-                        </div>
-                        <h3>Secure, Adaptive & Decentralized IoT Platform</h3>
-                        <p class="project-description">
-                            Concept design for a next-generation IoT security platform that combines
-                            <strong>decentralized identity, blockchain auditability, federated learning
-                                governance</strong>
-                            and <strong>privacy-preserving data erasure</strong>.
-                        </p>
-                        <p class="project-description">
-                            The architecture proposes a protocol-agnostic security mesh, DID-based device onboarding,
-                            on-chain governed federated learning, SBOM-aware secure updates, and smart-contract driven
-                            incident response – designed to handle real-world constraints like GDPR “right to be
-                            forgotten”.
-                        </p>
-                        <p class="project-description">
-                            <strong>Status:</strong> Patent-pending concept; currently at detailed design and research
-                            stage, planned for future prototyping.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">IoT Security</span>
-                            <span class="tech-tag">Blockchain</span>
-                            <span class="tech-tag">Federated Learning</span>
-                            <span class="tech-tag">DID</span>
-                        </div>
-                        <a href="contact.html" class="project-link">
-                            Discuss this research concept
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Applications & Platforms -->
-            <section aria-labelledby="apps-projects-heading" class="slide-up">
-                <h2 class="section-title" id="apps-projects-heading">Applications & Platforms</h2>
-
-                <div class="projects-grid">
-                    <!-- Exam Eligibility Finder -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">📘</div>
-                            <span class="project-status">React · Deployed</span>
-                        </div>
-                        <h3>Exam Eligibility Finder</h3>
-                        <p class="project-description">
-                            <strong>Problem:</strong> Students often struggle to understand long eligibility PDFs and
-                            guidelines for competitive exams.
-                        </p>
-                        <p class="project-description">
-                            <strong>Approach:</strong> Built a fast <strong>React + Vite</strong> web tool where
-                            students enter basic academic details and instantly see if they are Eligible, Not Eligible,
-                            or Conditionally Eligible, along with clear explanations of the rules.
-                        </p>
-                        <p class="project-description">
-                            <strong>Outcome:</strong> A clean, mobile-friendly tool that wraps complex criteria into a
-                            simple UI. Uses a production-grade multi-stage Docker build (Node builder + Nginx runner) to
-                            ship an optimized static bundle.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Vite</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                        <a href="https://github.com/garvg4278/Exam-Eligibility-Finder" class="project-link"
-                            target="_blank" rel="noopener noreferrer">
-                            View repository
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- DSA Visualization Platform -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">📊</div>
-                            <span class="project-status">Full-Stack</span>
-                        </div>
-                        <h3>DSA Visualization – Interactive Algorithm Learning</h3>
-                        <p class="project-description">
-                            A full-stack educational platform that visualizes 40+ data-structure and algorithm concepts
-                            (sorting, searching, graphs, DP, and more) using <strong>D3.js</strong> animations.
-                        </p>
-                        <p class="project-description">
-                            Built with <strong>Node.js, Express, MongoDB, Passport auth and EJS templates</strong>,
-                            it includes login/registration, a visitor counter, chatbot assistance, testimonial sections,
-                            and rich visualizations that show algorithms step-by-step rather than as static text.
-                        </p>
-                        <p class="project-description">
-                            <strong>Outcome:</strong> A production-style learning platform suitable for students,
-                            coaching centers, or self-study.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">D3.js</span>
-                        </div>
-                        <a href="https://github.com/garvg4278/DSA_Visualization" class="project-link" target="_blank"
-                            rel="noopener noreferrer">
-                            View repository
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- AI Interior Design Platform -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">🧠</div>
-                            <span class="project-status">AI · Research Implementation</span>
-                        </div>
-                        <h3>AI-Powered Interior Design Platform</h3>
-                        <p class="project-description">
-                            <strong>Problem:</strong> Interior design is slow and inaccessible; most users have to rely
-                            on static inspiration boards or manual design services.
-                        </p>
-                        <p class="project-description">
-                            <strong>Approach:</strong> Built a full-stack <strong>Next.js</strong> platform where users
-                            upload a room photo, choose room type and style, and get AI-generated redesigns. The system
-                            integrates <strong>Clerk auth, Neon Postgres (via Drizzle ORM), Firebase Storage, and
-                                Replicate AI</strong> for image-to-image generation, plus a credit system and dashboard.
-                        </p>
-                        <p class="project-description">
-                            <strong>Outcome:</strong> A research-driven implementation of multimodal, AI-assisted
-                            interior design, presented at an academic conference and built with a production-ready
-                            architecture (serverless DB, cloud storage, secure auth).
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">AI / Replicate</span>
-                            <span class="tech-tag">Neon + Drizzle</span>
-                            <span class="tech-tag">Firebase</span>
-                        </div>
-                        <a href="contact.html" class="project-link">
-                            Ask about this project / paper
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="M12 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- Airline Flights Analysis Dashboard -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-icon">📈</div>
-                            <span class="project-status">Data Analytics</span>
-                        </div>
-                        <h3>Airline Flights Analysis Dashboard</h3>
-                        <p class="project-description">
-                            A data-driven dashboard that analyzes airline performance, delays, route demand and airport
-                            congestion to reveal operational patterns that are hard to see in raw spreadsheets.
-                        </p>
-                        <p class="project-description">
-                            Worked with large flight datasets, cleaning and engineering features such as delay
-                            categories, route identifiers and congestion metrics. Built interactive visuals (e.g. delay
-                            heatmaps, route performance, airline comparisons) using BI tooling and DAX-style measures.
-                        </p>
-                        <p class="project-description">
-                            <strong>Outcome:</strong> Turns complex airline operations into actionable insights for
-                            planners and analysts.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Data Analysis</span>
-                            <span class="tech-tag">Dashboards</span>
-                            <span class="tech-tag">Power BI / Excel</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- How I Build Projects -->
-            <section class="slide-up" aria-labelledby="how-i-build-heading" style="margin-top: 3rem;">
-                <h2 class="section-title" id="how-i-build-heading">How I Build Projects</h2>
-                <p class="project-description">
-                    Whether it’s a small Bash script or a full AI platform, my approach stays consistent:
-                </p>
-                <div class="highlight-grid">
-                    <div class="highlight-card">
-                        <h3>1. Start from a real problem</h3>
-                        <p>I focus on what is actually slow, confusing or unreliable for users or teams, and turn that
-                            into a clear problem statement.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <h3>2. Design before code</h3>
-                        <p>I sketch flows, failure points, data paths and security concerns so the solution is
-                            structured, not just a quick script.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <h3>3. Automate and observe</h3>
-                        <p>I automate repetitive steps (scripts, Docker, CI/CD) and add logs/visibility so issues are
-                            easy to detect and debug later.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <h3>4. Iterate, document, share</h3>
-                        <p>I refine based on real usage, document the setup, and keep things in Git so others can run,
-                            reuse, or extend the work easily.</p>
-                    </div>
-                </div>
-            </section>
-
+            </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <p>&copy; 2025 Garv Gupta. All Rights Reserved.</p>
-            <button class="back-to-top" id="backToTop" aria-label="Back to top">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="18 15 12 9 6 15"></polyline>
-                </svg>
-            </button>
+        <!-- GROUP 2: DATA ENGINEERING -->
+        <div class="project-group" id="data">
+            <div class="project-group-title"><span class="g-accent">02</span> Data Engineering and Analytics</div>
+
+            <div class="projects-grid">
+                <!-- Asset Management Data Validation -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="tag tag-orange">ETL Pipeline</span>
+                    </div>
+                    <h3>Asset Management Data Validation System</h3>
+                    <p>
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Problem</strong><br>
+                        Financial asset datasets from multiple sources contained inconsistent formats, missing values, duplicate records, and currency mismatches that corrupted downstream analysis.
+                    </p>
+                    <p style="margin-top:0.5rem;">
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Approach</strong><br>
+                        Built a validation pipeline that ingests from multiple sources, applies rule-based checks for each data quality issue type, generates a metrics report flagging each violation with context.
+                    </p>
+                    <p style="margin-top:0.5rem;">
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Impact</strong><br>
+                        Automated what was manual review. Catches data issues at ingestion before they propagate into reports.
+                    </p>
+                    <div class="tech-stack" style="margin-top:0.75rem;">
+                        <span class="tag tag-blue">Python</span>
+                        <span class="tag tag-blue">Pandas</span>
+                        <span class="tag tag-blue">SQL</span>
+                        <span class="tag tag-blue">ETL</span>
+                        <span class="tag tag-blue">Data Quality</span>
+                    </div>
+                    <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        View on GitHub
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Retail Sales Analysis -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="tag tag-blue">Data Analytics</span>
+                    </div>
+                    <h3>Retail Sales Data Analysis</h3>
+                    <p>
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Problem</strong><br>
+                        Raw retail transaction data contained noise, inconsistent categories, and no useful aggregations for business decision-making.
+                    </p>
+                    <p style="margin-top:0.5rem;">
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Approach</strong><br>
+                        Cleaned and engineered features including product categories, seasonality markers, and customer segments. Built dashboards showing revenue trends, top SKUs, and regional performance.
+                    </p>
+                    <p style="margin-top:0.5rem;">
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Impact</strong><br>
+                        Surfaced actionable insights on peak seasons, underperforming product lines, and geographic opportunities.
+                    </p>
+                    <div class="tech-stack" style="margin-top:0.75rem;">
+                        <span class="tag tag-blue">Python</span>
+                        <span class="tag tag-blue">Pandas</span>
+                        <span class="tag tag-blue">Power BI</span>
+                        <span class="tag tag-blue">Feature Engineering</span>
+                    </div>
+                    <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        View on GitHub
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Airline Dashboard -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="tag tag-blue">Dashboard</span>
+                    </div>
+                    <h3>Airline Flights Analysis Dashboard</h3>
+                    <p>
+                        Analyzed large airline operations datasets to surface patterns in delays, route performance, and airport congestion. Engineered features like delay categories, route identifiers, and congestion scores from raw flight records, then built interactive dashboards for planners and analysts.
+                    </p>
+                    <div class="tech-stack" style="margin-top:0.75rem;">
+                        <span class="tag tag-blue">Data Analysis</span>
+                        <span class="tag tag-blue">Power BI</span>
+                        <span class="tag tag-blue">Excel</span>
+                        <span class="tag tag-blue">DAX</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
 
-    <script src="js/main.js"></script>
-    <script>
-        // set footer year (fallback)
-        (function () {
-            const yearEl = document.getElementById('currentYear');
-            if (yearEl) yearEl.textContent = new Date().getFullYear();
-        })();
-    </script>
+        <!-- GROUP 3: DEVOPS -->
+        <div class="project-group">
+            <div class="project-group-title"><span class="g-accent">03</span> DevOps and Automation</div>
+
+            <div class="projects-grid">
+                <!-- Portfolio CI/CD -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="tag tag-green">CI/CD</span>
+                    </div>
+                    <h3>Containerized Portfolio with Automated CI/CD</h3>
+                    <p>
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Problem</strong><br>
+                        Even simple websites are deployed manually with no versioning or repeatable delivery process.
+                    </p>
+                    <p style="margin-top:0.5rem;">
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Approach</strong><br>
+                        Containerized with Docker and Nginx alpine, with GitHub Actions building, tagging with commit SHA, and pushing to GHCR on every push to main.
+                    </p>
+                    <p style="margin-top:0.5rem;">
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Impact</strong><br>
+                        Every commit produces a versioned, registry-hosted image pullable anywhere with docker run.
+                    </p>
+                    <div class="tech-stack" style="margin-top:0.75rem;">
+                        <span class="tag tag-green">Docker</span>
+                        <span class="tag tag-green">Nginx</span>
+                        <span class="tag tag-green">GitHub Actions</span>
+                        <span class="tag tag-green">GHCR</span>
+                    </div>
+                    <a href="https://github.com/garvg4278/portfolio" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        View code and workflow
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Linux Automation -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="tag tag-yellow">Automation</span>
+                    </div>
+                    <h3>Linux User Management Automation</h3>
+                    <p>
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Problem</strong><br>
+                        Manually onboarding users on lab machines was slow and produced inconsistent configurations.
+                    </p>
+                    <p style="margin-top:0.5rem;">
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Approach</strong><br>
+                        Bash scripts automating user creation, group assignment, home directory setup, SSH restrictions, and default permission hardening.
+                    </p>
+                    <p style="margin-top:0.5rem;">
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Impact</strong><br>
+                        Turned a multi-step manual process into one repeatable command. Machines stay in a consistent, hardened state.
+                    </p>
+                    <div class="tech-stack" style="margin-top:0.75rem;">
+                        <span class="tag tag-yellow">Bash</span>
+                        <span class="tag tag-yellow">Linux</span>
+                        <span class="tag tag-yellow">Automation</span>
+                        <span class="tag tag-yellow">Security Hardening</span>
+                    </div>
+                    <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        View scripts
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- Log Monitoring -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="tag tag-yellow">Monitoring</span>
+                    </div>
+                    <h3>Log Monitoring and Alert Utilities</h3>
+                    <p>
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Problem</strong><br>
+                        Critical errors in system logs were missed during manual review cycles.
+                    </p>
+                    <p style="margin-top:0.5rem;">
+                        <strong style="color:var(--color-primary);font-size:0.73rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.04em;">Approach</strong><br>
+                        Python and Bash utilities that parse logs, filter by severity patterns, and generate summaries. Designed around the same pattern-matching logic used in real observability tools.
+                    </p>
+                    <div class="tech-stack" style="margin-top:0.75rem;">
+                        <span class="tag tag-yellow">Python</span>
+                        <span class="tag tag-yellow">Bash</span>
+                        <span class="tag tag-yellow">Log Parsing</span>
+                        <span class="tag tag-yellow">Monitoring</span>
+                    </div>
+                    <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        View utilities
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- GROUP 4: APPLICATIONS -->
+        <div class="project-group">
+            <div class="project-group-title"><span class="g-accent">04</span> Applications and Platforms</div>
+
+            <div class="projects-grid">
+                <!-- Exam Eligibility -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="tag tag-blue">React / Docker</span>
+                    </div>
+                    <h3>Exam Eligibility Finder</h3>
+                    <p>React and Vite tool that checks student eligibility for competitive exams based on academic details, returning clear eligibility status with rule explanations. Containerized with a multi-stage Docker build using Node builder and Nginx runner to ship an optimized static bundle.</p>
+                    <div class="tech-stack" style="margin-top:0.75rem;">
+                        <span class="tag tag-blue">React</span>
+                        <span class="tag tag-blue">Vite</span>
+                        <span class="tag tag-blue">Docker</span>
+                        <span class="tag tag-blue">Nginx</span>
+                    </div>
+                    <a href="https://github.com/garvg4278/Exam-Eligibility-Finder" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        View repository
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- DSA Visualization -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="tag tag-blue">Full-Stack</span>
+                    </div>
+                    <h3>DSA Visualization Platform</h3>
+                    <p>Educational full-stack platform visualizing 40+ data structure and algorithm concepts with D3.js animations. Built with Node.js, Express, MongoDB, Passport auth, and EJS templates. Includes login, visitor tracking, chatbot, and step-by-step algorithm visualization.</p>
+                    <div class="tech-stack" style="margin-top:0.75rem;">
+                        <span class="tag tag-blue">Node.js</span>
+                        <span class="tag tag-blue">Express</span>
+                        <span class="tag tag-blue">MongoDB</span>
+                        <span class="tag tag-blue">D3.js</span>
+                    </div>
+                    <a href="https://github.com/garvg4278/DSA_Visualization" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                        View repository
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- AI Interior Design -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="tag tag-orange">AI / Research</span>
+                    </div>
+                    <h3>AI-Powered Interior Design Platform</h3>
+                    <p>Next.js platform where users upload a room photo and get AI-generated redesigns. Integrates Clerk auth, Neon Postgres via Drizzle ORM, Firebase Storage, Replicate AI for image-to-image generation, and a credit system. Presented at an academic conference.</p>
+                    <div class="tech-stack" style="margin-top:0.75rem;">
+                        <span class="tag tag-orange">Next.js</span>
+                        <span class="tag tag-orange">Replicate AI</span>
+                        <span class="tag tag-orange">Drizzle ORM</span>
+                        <span class="tag tag-orange">Firebase</span>
+                    </div>
+                    <a href="contact.html" class="project-link-btn">
+                        Ask about this project
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOW I BUILD -->
+        <div class="section-gap"></div>
+        <div class="section-header">
+            <div class="section-label">Engineering Process</div>
+            <h2>How I Build Projects</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-num">01</div>
+                <h3>Start with the real problem</h3>
+                <p>What is actually slow, broken, or missing for users or teams? Turn that into a clear problem statement before touching code.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-num">02</div>
+                <h3>Design before code</h3>
+                <p>Sketch flows, data paths, failure points, and security concerns. Structure the solution before writing any implementation.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-num">03</div>
+                <h3>Automate and observe</h3>
+                <p>Scripts, Docker, CI/CD pipelines for the repetitive work. Logs and visibility so issues are easy to find and fix.</p>
+            </div>
+            <div class="process-card">
+                <div class="process-num">04</div>
+                <h3>Document and version</h3>
+                <p>Everything in Git, README written for someone who has never seen the project, architecture explained clearly.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <span class="footer-copy">Garv Gupta &copy; 2026</span>
+        <div class="footer-links">
+            <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/garv-gupta/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
-
 </html>

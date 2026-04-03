@@ -1,458 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Portfolio of Garv Gupta, Computer Science Engineering student (Batch 2026) focusing on Cybersecurity, DevOps, secure system design, and Linux automation projects.">
-    <meta name="keywords"
-        content="Garv Gupta, cybersecurity student, DevOps, DevSecOps, Chandigarh University, portfolio, Linux automation, secure IoT, blockchain, AI security">
-
-    <!-- Open Graph / Social Preview -->
-    <meta property="og:title" content="Garv Gupta - Cybersecurity & DevOps Portfolio">
-    <meta property="og:description"
-        content="I build secure, automated systems at the intersection of Cybersecurity and DevOps. Explore my projects, skills, and experience.">
+    <meta name="description" content="Garv Gupta - DevOps Engineer. I build and deploy secure, production-ready systems using DevOps, backend engineering, and data-driven workflows.">
+    <meta name="keywords" content="Garv Gupta, DevOps engineer, Docker, CI/CD, GitHub Actions, backend, Node.js, PostgreSQL, cybersecurity, Chandigarh University">
+    <meta property="og:title" content="Garv Gupta - DevOps & Backend Engineer">
+    <meta property="og:description" content="I build secure, production-ready systems. DevOps, containerization, backend engineering, data pipelines.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="YOUR_DEPLOYED_URL_HERE">
-
-    <title>Garv Gupta - Home</title>
-
+    <title>Garv Gupta - DevOps & Backend Engineer</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">Garv Gupta<span class="logo-dot"></span></a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="education.html" class="nav-link">Education</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-                <li><a href="skills.html" class="nav-link">Skills</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">garv<span>.gupta</span></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link active">home</a></li>
+            <li><a href="about.html" class="nav-link">about</a></li>
+            <li><a href="education.html" class="nav-link">education</a></li>
+            <li><a href="projects.html" class="nav-link">projects</a></li>
+            <li><a href="skills.html" class="nav-link">skills</a></li>
+            <li><a href="contact.html" class="nav-link">contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-container">
+        <p class="hero-eyebrow">DevOps &amp; Backend Engineer</p>
+        <h1 class="hero-name">
+            Garv<br><span class="green">Gupta</span>
+        </h1>
+        <p class="hero-role">
+            <span>Docker</span>
+            <span class="sep">/</span>
+            <span>CI/CD Pipelines</span>
+            <span class="sep">/</span>
+            <span>Backend Systems</span>
+            <span class="sep">/</span>
+            <span>Data Engineering</span>
+        </p>
+        <p class="hero-statement">
+            I build <strong>secure, production-ready systems</strong> with a focus on DevOps, backend engineering,
+            and data-driven workflows. Not just academic projects. Systems that are
+            <strong>reliable, scalable, and easy to maintain</strong>.
+        </p>
+        <div class="hero-cta">
+            <a href="projects.html" class="btn btn-primary">View Projects</a>
+            <a href="contact.html" class="btn btn-outline">Get In Touch</a>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <canvas id="particleCanvas" class="particle-canvas"></canvas>
-
-        <div class="hero-content">
-            <div class="hero-text fade-in">
-                <p class="hero-greeting">Hi, I'm</p>
-                <h1 class="hero-title">Garv Gupta</h1>
-
-                <p class="hero-subtitle">
-                    I secure and automate systems at the intersection of <strong>Cybersecurity</strong> and
-                    <strong>DevOps</strong>.
-                </p>
-
-                <p class="hero-description">
-                    7th-semester CSE student (Batch 2026) focused on <strong>secure system design</strong>,
-                    <strong>Linux automation</strong>, and <strong>DevSecOps</strong>.
-                    I enjoy breaking systems apart to understand their weaknesses and then rebuilding them to be
-                    resilient.
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="projects.html" class="btn btn-primary">See My Work</a>
-                    <!-- <a href="assets/Garv_Gupta_Resume.pdf" class="btn btn-secondary" target="_blank"
-                        rel="noopener noreferrer">
-                        Download Resume
-                    </a> -->
-                </div>
-
-                <div class="hero-socials">
-                    <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <span>•</span>
-                    <a href="https://linkedin.com/in/garv-gupta/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </div>
-
-
-                <p class="hero-footnote">
-                    Actively working on: Secure IoT platform (patent pending) · Linux automation · CI/CD &amp;
-                    containerization
-                </p>
-            </div>
-        </div>
-
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-    </section>
-
-
-    <!-- About Section -->
-    <section class="about-section">
-        <div class="circuit-bg"></div>
-        <div class="container">
-            <div class="page-header fade-in">
-                <h1>About Me</h1>
-                <div class="title-underline"></div>
-            </div>
-
-            <div class="about-content">
-                <div class="about-image-wrapper slide-up">
-                    <div class="profile-image">
-                        <img src="assets/profile-placeholder.jpg" alt="Garv Gupta Profile Picture" loading="lazy">
-                        <div class="image-border"></div>
-                    </div>
-                </div>
-
-                <div class="about-text slide-up">
-                    <div class="bio-section">
-                        <h2>Who I Am</h2>
-                        <p>
-                            I’m <strong>Garv Gupta</strong>, a Computer Science Engineering student at Chandigarh
-                            University (Batch 2026), focused on <strong>cybersecurity</strong>, <strong>DevOps</strong>,
-                            and <strong>secure system design</strong>.
-                        </p>
-                        <p>
-                            I build things like a patent-pending <strong>Secure IoT platform</strong>, Linux user
-                            management automation scripts, and network configuration simulations always with a “learn
-                            deeply, then build practically” mindset.
-                        </p>
-                        <p>
-                            My long-term goal is to grow into a <strong>DevSecOps &amp; cybersecurity engineer</strong>
-                            who designs systems that are not just functional, but resilient.
-                        </p>
-
-                        <a href="about.html" class="btn btn-secondary" style="margin-top: 1rem;">
-                            More about me
-                        </a>
-                    </div>
-
-                    <div class="interests-section">
-                        <h2>My Interests</h2>
-                        <div class="interest-tags">
-                            <span class="interest-tag">Cybersecurity</span>
-                            <span class="interest-tag">DevOps</span>
-                            <span class="interest-tag">System Automation</span>
-                            <span class="interest-tag">AI in Security</span>
-                            <span class="interest-tag">Cloud Computing</span>
-                        </div>
-                    </div>
-
-                    <div class="goal-section">
-                        <h2>My Goal</h2>
-                        <p class="goal-text">
-                            To become a versatile engineer capable of building secure, scalable, intelligent systems.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="highlight-section">
-        <div class="container">
-            <h2 class="section-title">How I Can Add Value</h2>
-            <div class="highlight-grid">
-                <div class="highlight-card">
-                    <h3>Secure Systems</h3>
-                    <p>I design and test systems with security in mind access control, hardening, and basic threat
-                        modeling.</p>
-                </div>
-                <div class="highlight-card">
-                    <h3>Automation & DevOps</h3>
-                    <p>I write scripts and pipelines that automate provisioning, deployment, and monitoring workflows.
-                    </p>
-                </div>
-                <div class="highlight-card">
-                    <h3>Hands-on Experimentation</h3>
-                    <p>I learn by building: from Linux admin scripts to IoT security prototypes using AI and blockchain
-                        concepts.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="quick-links-section">
-        <div class="container">
-
-            <h2 class="section-title">Featured Highlights</h2>
-
-            <div class="quick-links-grid">
-
-                <!-- DevOps CI/CD Project -->
-                <a href="projects.html#devops" class="quick-link-card">
-                    <span class="quick-link-title">🐳 DevOps CI/CD Deployment</span>
-                    <span class="quick-link-text">Docker-based build pipeline with GitHub Actions & GHCR</span>
-                </a>
-
-                <!-- Linux automation -->
-                <a href="projects.html#linux-automation" class="quick-link-card">
-                    <span class="quick-link-title">🐧 Linux Automation</span>
-                    <span class="quick-link-text">User onboarding + log monitoring scripts</span>
-                </a>
-
-                <!-- Patent research -->
-                <a href="projects.html#iot" class="quick-link-card">
-                    <span class="quick-link-title">🔐 Secure IoT Platform</span>
-                    <span class="quick-link-text">Decentralized trust + AI enforcement (Patent concept)</span>
-                </a>
-
-                <!-- Skills Overview -->
-                <a href="skills.html" class="quick-link-card">
-                    <span class="quick-link-title">⚙️ Skills</span>
-                    <span class="quick-link-text">DevOps • Cybersecurity • Data Analysis • Development</span>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="education-section">
-        <div class="container">
-            <div class="page-header fade-in">
-                <h1>Education & Certifications</h1>
-                <div class="title-underline"></div>
-            </div>
-
-            <!-- Education Timeline -->
-            <div class="timeline-section">
-                <h2 class="section-title">Academic Journey</h2>
-                <div class="timeline">
-                    <div class="timeline-item slide-up">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2022 - 2026</span>
-                            <h3>Bachelor of Engineering</h3>
-                            <h4>Computer Science Engineering</h4>
-                            <p class="institution">Chandigarh University</p>
-                            <p class="description">Focusing on Cybersecurity, DevOps, Software Development, and Data
-                                Analytics. Beyond academics, I actively explore how technology connects with the real
-                                world experimenting with secure system design, automation, and emerging tech that can
-                                create measurable impact.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item slide-up">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2021 - 2022</span>
-                            <h3>Grade 12 (CBSE)</h3>
-                            <h4>PCM</h4>
-                            <p class="institution">Agra Vanasthali Vidyalaya, Agra</p>
-                            <p class="description">Developed academic strength in Physics, Chemistry, and Mathematics.
-                                Those years built my analytical base and shaped my curiosity to explore how engineering
-                                can solve practical challenges and create smarter systems beyond textbooks.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item slide-up">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">2019 - 2020</span>
-                            <h3>Grade 10 (CBSE)</h3>
-                            <p class="institution">Delhi Public School, Agra</p>
-                            <p class="description">Developed a strong foundation in Mathematics and Science while
-                                nurturing an early interest in computers and problem-solving. That curiosity soon
-                                evolved into a passion for understanding how technology actually works behind the
-                                scenes.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Certifications Grid -->
-            <div class="certifications-section">
-                <h2 class="section-title">Professional Certifications</h2>
-
-                <!-- Filter bar -->
-                <!-- <div class="cert-filter">
-                    <label for="certFilter">Filter:</label>
-                    <select id="certFilter">
-                        <option value="all">All</option>
-                        <option value="HackerRank">HackerRank</option>
-                        <option value="Meta">Meta</option>
-                        <option value="University">University</option>
-                    </select>
-                </div> -->
-
-                <div class="certifications-grid">
-
-                    <!-- Google Cybersecurity -->
-                    <div class="cert-card slide-up" data-cert="google-cybersecurity" role="button" tabindex="0"
-                        aria-pressed="false">
-                        <img src="assets/Google_Cyber.jpg" alt="Google Cybersecurity certificate thumbnail"
-                            class="cert-thumb" loading="lazy">
-                        <div class="cert-card-body">
-                            <div class="cert-head">
-                                <div class="cert-icon">🛡️</div>
-                                <div>
-                                    <h3>Google Cybersecurity (Professional)</h3>
-                                    <p class="cert-issuer">Google · 2025</p>
-                                </div>
-                            </div>
-                            <p class="cert-overlay">Linux, Python, SIEM, IDS, risk analysis and threat detection.</p>
-                            <div class="cert-actions" style="justify-content:center;">
-                                <button class="cert-view-btn btn btn-secondary" aria-haspopup="dialog">View</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- EC-Council Cybersecurity -->
-                    <div class="cert-card slide-up" data-cert="eccouncil-cyberfundamentals" role="button" tabindex="0"
-                        aria-pressed="false">
-                        <img src="assets/EC.jpg" alt="EC-Council cybersecurity certificate thumbnail" class="cert-thumb"
-                            loading="lazy">
-                        <div class="cert-card-body">
-                            <div class="cert-head">
-                                <div class="cert-icon">🔐</div>
-                                <div>
-                                    <h3>Cybersecurity Attack & Defense</h3>
-                                    <p class="cert-issuer">EC-Council · 2024</p>
-                                </div>
-                            </div>
-                            <p class="cert-overlay">Ethical hacking essentials, network defense, digital forensics.</p>
-                            <div class="cert-actions" style="justify-content:center;">
-                                <button class="cert-view-btn btn btn-secondary" aria-haspopup="dialog">View</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- IBM DevOps -->
-                    <div class="cert-card slide-up" data-cert="ibm-devops" role="button" tabindex="0"
-                        aria-pressed="false">
-                        <img src="assets/DevOps.jpg" alt="IBM DevOps certificate thumbnail" class="cert-thumb"
-                            loading="lazy">
-                        <div class="cert-card-body">
-                            <div class="cert-head">
-                                <div class="cert-icon">⚙️</div>
-                                <div>
-                                    <h3>Introduction to DevOps</h3>
-                                    <p class="cert-issuer">IBM · 2025</p>
-                                </div>
-                            </div>
-                            <p class="cert-overlay">CI/CD pipelines, automation workflows, and deployment principles.
-                            </p>
-                            <div class="cert-actions" style="justify-content:center;">
-                                <button class="cert-view-btn btn btn-secondary" aria-haspopup="dialog">View</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NPTEL Cloud IoT Edge ML -->
-                    <div class="cert-card slide-up" data-cert="nptel-cloud-iot" role="button" tabindex="0"
-                        aria-pressed="false">
-                        <img src="assets/Foundation_of_Cloud_IoT_Edge_ML.jpg"
-                            alt="NPTEL IIT Cloud IoT ML certificate thumbnail" class="cert-thumb" loading="lazy">
-                        <div class="cert-card-body">
-                            <div class="cert-head">
-                                <div class="cert-icon">☁️</div>
-                                <div>
-                                    <h3>Cloud · IoT · Edge · ML (Elite)</h3>
-                                    <p class="cert-issuer">IIT Kanpur (NPTEL) · 2025</p>
-                                </div>
-                            </div>
-                            <p class="cert-overlay">Edge compute, cloud fundamentals, IoT architecture and applied ML.
-                            </p>
-                            <div class="cert-actions" style="justify-content:center;">
-                                <button class="cert-view-btn btn btn-secondary" aria-haspopup="dialog">View</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- IBM SQL Honors -->
-                    <div class="cert-card slide-up" data-cert="ibm-sql-honors" role="button" tabindex="0"
-                        aria-pressed="false">
-                        <img src="assets/DB_SQL.jpg" alt="IBM SQL Honors certificate thumbnail" class="cert-thumb"
-                            loading="lazy">
-                        <div class="cert-card-body">
-                            <div class="cert-head">
-                                <div class="cert-icon">💾</div>
-                                <div>
-                                    <h3>Databases & SQL (Honors)</h3>
-                                    <p class="cert-issuer">IBM · 2024</p>
-                                </div>
-                            </div>
-                            <p class="cert-overlay">Joins, subqueries, transactions, relational modeling & data
-                                handling.</p>
-                            <div class="cert-actions" style="justify-content:center;">
-                                <button class="cert-view-btn btn btn-secondary" aria-haspopup="dialog">View</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Meta Databases -->
-                    <div class="cert-card slide-up" data-cert="meta-databases" role="button" tabindex="0"
-                        aria-pressed="false">
-                        <img src="assets/DB.jpg" alt="Meta Databases certificate thumbnail" class="cert-thumb"
-                            loading="lazy">
-                        <div class="cert-card-body">
-                            <div class="cert-head">
-                                <div class="cert-icon">🗄️</div>
-                                <div>
-                                    <h3>Introduction to Databases</h3>
-                                    <p class="cert-issuer">Meta · 2024</p>
-                                </div>
-                            </div>
-                            <p class="cert-overlay">Normalization, ERD, constraints, and database system fundamentals.
-                            </p>
-                            <div class="cert-actions" style="justify-content:center;">
-                                <button class="cert-view-btn btn btn-secondary" aria-haspopup="dialog">View</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> <!-- .certifications-grid -->
-            </div> <!-- .certifications-section -->
-
-        </div>
-    </section>
-
-    <!-- Certification Modal -->
-    <div class="cert-modal" id="certModal" aria-hidden="true">
-        <div class="cert-modal-content">
-            <button class="cert-close-btn" id="certCloseBtn" aria-label="Close certification details">✕</button>
-
-            <h2 id="certTitle">Certification Title</h2>
-            <p class="cert-provider" id="certProvider"></p>
-
-            <div class="cert-details" id="certDetails">
-                <!-- JS will inject details here -->
-            </div>
-
-            <a id="certLink" class="cert-open-btn" href="#" target="_blank" rel="noopener noreferrer">
-                Open Certificate
+        <div class="hero-socials">
+            <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+            </a>
+            <a href="https://linkedin.com/in/garv-gupta/" target="_blank" rel="noopener noreferrer">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
             </a>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <p>&copy; 2025 Garv Gupta. All Rights Reserved.</p>
-            <button class="back-to-top" id="backToTop" aria-label="Back to top">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="18 15 12 9 6 15"></polyline>
-                </svg>
-            </button>
+        <div class="hero-status">
+            <div class="status-label">
+                <span class="status-dot"></span>
+                Building Now
+            </div>
+            <div class="status-items">
+                <span>Logistics Shipment System</span>
+                <span>CI/CD Automation Workflows</span>
+                <span>Scalable Backend Architecture</span>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="js/main.js"></script>
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <span class="stat-num">8+</span>
+            <span class="stat-label">Projects Shipped</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Certifications</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Dockerized Systems</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">2026</span>
+            <span class="stat-label">Graduating (B.E. CSE)</span>
+        </div>
+    </div>
+</div>
+
+<!-- CURRENTLY BUILDING -->
+<section class="building-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Active Work</div>
+            <h2>What I'm Building Right Now</h2>
+            <p>I stay active. These are systems currently in progress, not concepts.</p>
+        </div>
+        <div class="building-grid">
+            <div class="building-card">
+                <div class="building-card-top">
+                    <h3>Logistics Shipment System</h3>
+                    <span class="tag tag-orange">In Progress</span>
+                </div>
+                <p>Full-stack logistics platform with role-based access control, real-time shipment tracking, and backend architecture designed for scale.</p>
+                <div class="building-tech">
+                    <span class="tech-chip">Node.js</span>
+                    <span class="tech-chip">PostgreSQL</span>
+                    <span class="tech-chip">RBAC</span>
+                    <span class="tech-chip">Docker</span>
+                </div>
+            </div>
+            <div class="building-card">
+                <div class="building-card-top">
+                    <h3>CI/CD Automation Workflows</h3>
+                    <span class="tag tag-green">Active</span>
+                </div>
+                <p>Designing GitHub Actions pipelines that automate build, test, and container registry push cycles for multiple services.</p>
+                <div class="building-tech">
+                    <span class="tech-chip">GitHub Actions</span>
+                    <span class="tech-chip">GHCR</span>
+                    <span class="tech-chip">Docker</span>
+                    <span class="tech-chip">Bash</span>
+                </div>
+            </div>
+            <div class="building-card">
+                <div class="building-card-top">
+                    <h3>Backend Architecture Practice</h3>
+                    <span class="tag tag-blue">Learning</span>
+                </div>
+                <p>Building modular REST APIs with proper auth layers, ORM-based data access, and structured service separation.</p>
+                <div class="building-tech">
+                    <span class="tech-chip">Express</span>
+                    <span class="tech-chip">Prisma ORM</span>
+                    <span class="tech-chip">JWT</span>
+                    <span class="tech-chip">REST API</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VALUE -->
+<section class="value-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">What I Bring</div>
+            <h2>Core Engineering Strengths</h2>
+            <p>How I add real value to engineering teams and projects.</p>
+        </div>
+        <div class="value-grid">
+            <div class="value-card fade-in">
+                <div class="value-icon">🐳</div>
+                <h3>DevOps and Containerization</h3>
+                <p>Docker, CI/CD pipelines, GitHub Actions, container registries. I treat deployments as repeatable, versioned, automated processes.</p>
+            </div>
+            <div class="value-card fade-in">
+                <div class="value-icon">🔐</div>
+                <h3>Backend and Auth Systems</h3>
+                <p>JWT authentication, RBAC systems, RESTful API design, Prisma ORM, PostgreSQL. I build backends that are structured and secure by design.</p>
+            </div>
+            <div class="value-card fade-in">
+                <div class="value-icon">📊</div>
+                <h3>Data Engineering and Validation</h3>
+                <p>ETL pipelines, multi-source ingestion, data quality checks, validation logic. I build systems that catch bad data before it causes problems.</p>
+            </div>
+            <div class="value-card fade-in">
+                <div class="value-icon">🐧</div>
+                <h3>Linux and Automation</h3>
+                <p>Bash scripting, user management, log monitoring, system hardening. I automate repetitive operations to keep environments consistent.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED PROJECTS PREVIEW -->
+<section style="padding:5rem 0; background:var(--color-bg-2);">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Flagship Work</div>
+            <h2>Projects That Show Real Engineering</h2>
+            <p>Each of these solves a real problem, not just an academic exercise.</p>
+        </div>
+        <div class="projects-grid" style="margin-top:2rem;">
+            <a href="projects.html#inventory" class="project-card" style="cursor:pointer;text-decoration:none;">
+                <div class="project-card-top">
+                    <span class="tag tag-green">Flagship</span>
+                </div>
+                <h3>Dockerized Inventory and Workflow System</h3>
+                <p>Full-stack system with RBAC, JWT auth, Prisma ORM, and containerized frontend and backend. Role-based access for admin and user workflows.</p>
+                <div class="tech-stack" style="margin-top:0.5rem;">
+                    <span class="tag tag-blue">Docker</span>
+                    <span class="tag tag-blue">Node.js</span>
+                    <span class="tag tag-blue">Prisma</span>
+                    <span class="tag tag-blue">JWT</span>
+                </div>
+                <div class="project-link-btn" style="margin-top:1rem;">
+                    View project details
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </div>
+            </a>
+            <a href="projects.html#data" class="project-card" style="cursor:pointer;text-decoration:none;">
+                <div class="project-card-top">
+                    <span class="tag tag-orange">Data Engineering</span>
+                </div>
+                <h3>Asset Management Data Validation System</h3>
+                <p>ETL pipeline with multi-source ingestion, data validation logic covering missing values, duplicates, and currency mismatches, plus quality reporting.</p>
+                <div class="tech-stack" style="margin-top:0.5rem;">
+                    <span class="tag tag-blue">Python</span>
+                    <span class="tag tag-blue">ETL</span>
+                    <span class="tag tag-blue">Pandas</span>
+                    <span class="tag tag-blue">SQL</span>
+                </div>
+                <div class="project-link-btn" style="margin-top:1rem;">
+                    View project details
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </div>
+            </a>
+            <a href="projects.html" class="project-card" style="cursor:pointer;text-decoration:none;">
+                <div class="project-card-top">
+                    <span class="tag tag-yellow">DevOps</span>
+                </div>
+                <h3>Containerized Portfolio with CI/CD</h3>
+                <p>This very site, containerized with Docker and Nginx, with GitHub Actions automatically building and pushing versioned images to GHCR on every push to main.</p>
+                <div class="tech-stack" style="margin-top:0.5rem;">
+                    <span class="tag tag-blue">Docker</span>
+                    <span class="tag tag-blue">GitHub Actions</span>
+                    <span class="tag tag-blue">GHCR</span>
+                    <span class="tag tag-blue">Nginx</span>
+                </div>
+                <div class="project-link-btn" style="margin-top:1rem;">
+                    View all projects
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                </div>
+            </a>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;">
+            <a href="projects.html" class="btn btn-outline">See All Projects</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <span class="footer-copy">Garv Gupta &copy; 2026</span>
+        <div class="footer-links">
+            <a href="https://github.com/garvg4278" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/garv-gupta/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
-
 </html>
