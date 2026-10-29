@@ -1,4 +1,3 @@
-
 name: Build, check and publish
 
 on:
@@ -133,11 +132,13 @@ jobs:
             if curl --fail --silent http://127.0.0.1:8080/ >/dev/null; then
               break
             fi
+
             if [ "$attempt" -eq 15 ]; then
               echo "Container did not become ready."
               docker logs portfolio-test
               exit 1
             fi
+
             sleep 2
           done
 
@@ -163,3 +164,29 @@ jobs:
           echo "Published:"
           echo "$IMAGE_NAME:latest"
           echo "$IMAGE_NAME:$GITHUB_SHA"
+
+  publish-preview:
+    name: Publish static preview branch
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: write
+      actions: read
+
+    steps:
+      - name: Download built portfolio
+        uses: actions/download-artifact@v4
+        with:
+          name: portfolio-dist
+          path: dist/
+
+      - name: Publish preview files
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: portfolio-preview
+          force_orphan: true
