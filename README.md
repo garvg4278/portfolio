@@ -3,7 +3,7 @@
 A 3D developer portfolio for Garv Gupta (B.E. Computer Science Engineering, Chandigarh University, 2026; DevOps and cloud engineering).
 Built with **Astro** (static output), **Three.js** (lazy-loaded scenes) and plain CSS. Served from an **nginx** container.
 
-Live: https://garv-gupta-portfolio.bytexl.live
+Live: https://garv-gupta-portfolio.pages.dev
 
 ## Pages
 
@@ -87,7 +87,7 @@ The Dockerfile is multi-stage: Node builds the site and runs the link check, the
 1. **check** (push and pull request): `npm ci`, lint, type-check, unit tests, `npm run build`, `npm run check:links`.
 2. **publish** (push to `main` or manual run): build the image, smoke-test it with `docker run` and `curl`, push `latest` and the 7-character commit SHA to `ghcr.io/garvg4278/garv-portfolio`. Registry login uses the `GHCR_PAT` repository secret, as before.
 
-**The workflow publishes an image. It does not deploy it.** Whatever serves https://garv-gupta-portfolio.bytexl.live must be pointed at the new image (or rebuilt from this repository) for the new site to go live. See `docs/DEPLOYMENT.md`.
+**The workflow publishes an image. It does not deploy it.** Whatever serves https://garv-gupta-portfolio.pages.dev must be pointed at the new image (or rebuilt from this repository) for the new site to go live. See `docs/DEPLOYMENT.md`.
 
 ## Structure
 
