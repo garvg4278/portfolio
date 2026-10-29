@@ -1,0 +1,24 @@
+---
+// One certificate viewer per page. Opened by .cc__thumb buttons (see scripts/features/cert-viewer.js).
+---
+<dialog class="cdlg" id="cert-dialog" aria-label="Certificate viewer">
+  <form method="dialog" class="cdlg__bar"><p class="mono" data-cap></p><button class="btn btn--ghost" type="submit" value="close">Close</button></form>
+  <div class="cdlg__frame" data-frame><img alt="" data-img /></div>
+</dialog>
+
+<style>
+  .cdlg { width: min(1100px, 94vw); max-height: 94vh; padding: 0; border: 1px solid var(--line-strong); border-radius: var(--r-md); background: var(--bg); color: var(--text); overflow: auto; }
+  .cdlg::backdrop { background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(4px); }
+  .cdlg__bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); }
+  .cdlg__bar .btn { min-height: 40px; padding: 0.4rem 1rem; }
+  .cdlg__frame { min-height: 40vh; background: color-mix(in srgb, var(--accent) 12%, var(--bg)); }
+  .cdlg__frame.is-loading { animation: pulse 1.2s ease-in-out infinite; }
+  .cdlg img { width: 100%; height: auto; background: #fff; }
+  @keyframes pulse { 50% { opacity: 0.55; } }
+  @media (prefers-reduced-motion: reduce) { .cdlg__frame.is-loading { animation: none; } }
+</style>
+
+<script>
+  import { initCertViewer } from '../scripts/features/cert-viewer.js';
+  initCertViewer();
+</script>

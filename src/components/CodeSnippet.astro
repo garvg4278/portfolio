@@ -1,0 +1,14 @@
+---
+import CopyButton from './CopyButton.astro';
+const { title, code } = Astro.props as { title: string; code: string };
+---
+<figure class="snip" data-theme="dark">
+  <figcaption class="mono"><span>{title}</span><CopyButton text={code} name={title} /></figcaption>
+  <pre tabindex="0"><code>{code}</code></pre>
+</figure>
+
+<style>
+  .snip { margin: 0; background: var(--bg); color: var(--fg); border: 1px solid var(--line-strong); border-radius: var(--r-md); overflow: hidden; max-width: 70ch; }
+  figcaption { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.4rem 0.6rem 0.4rem 1rem; border-bottom: 1px solid var(--line); color: var(--text-dim); }
+  pre { margin: 0; padding: 1rem; overflow-x: auto; font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.6; }
+</style>

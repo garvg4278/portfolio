@@ -1,0 +1,51 @@
+---
+import FlowThumb from './FlowThumb.astro';
+import type { Project } from '../types';
+import { statusGlyph } from '../lib/projects.js';
+const { project: p, index = 0 } = Astro.props as { project: Project; index?: number };
+const glyph = statusGlyph(p.status);
+const shown = p.stack.slice(0, 4);
+const extra = p.stack.length - shown.length;
+---
+<article class="pc" data-tilt data-category={p.category} data-reveal style={`--i:${index % 6}`}>
+  <div class="pc__visual" data-theme="dark"><FlowThumb steps={p.flow.steps} uid={p.slug} /></div>
+  <div class="pc__body">
+    <div class="pc__meta">
+      <span class="mono dim">{p.category}</span>
+      <span class="status" data-s={p.status}><i aria-hidden="true">{glyph}</i>{p.status}</span>
+    </div>
+    <h3><a class="pc__link" href={`/projects/${p.slug}/`}>{p.name}</a></h3>
+    <p class="pc__sum dim">{p.summary}</p>
+    <ul class="chips" aria-label="Technology stack">
+      {shown.map((s) => <li class="chip">{s}</li>)}
+      {extra > 0 && <li class="chip">+{extra}</li>}
+    </ul>
+    <div class="pc__actions">
+      <a class="pc__more" href={`/projects/${p.slug}/`} tabindex="-1" aria-hidden="true">Project details</a>
+      {p.repo && <a class="pc__ext" href={p.repo} target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> repository for {p.name} (opens in a new tab)</span></a>}
+      {p.live && <a class="pc__ext" href={p.live} target="_blank" rel="noopener noreferrer">Live demo<span class="sr-only"> of {p.name} (opens in a new tab)</span></a>}
+    </div>
+  </div>
+</article>
+
+<style>
+  .pc { --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 50%; position: relative; display: flex; flex-direction: column; height: 100%; background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)); transition: border-color var(--t-med), box-shadow var(--t-med), transform 180ms ease-out, opacity var(--t-slow) var(--ease); box-shadow: var(--shadow-layer); }
+  .pc::before { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(420px circle at var(--mx) var(--my), color-mix(in srgb, var(--accent) 11%, transparent), transparent 60%); opacity: 0; transition: opacity var(--t-med); }
+  .pc:hover, .pc:focus-within { border-color: var(--accent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent), 0 30px 60px -28px color-mix(in srgb, var(--accent-2) 70%, var(--bg)); }
+  .pc:hover::before { opacity: 1; }
+  .pc__visual { aspect-ratio: 16 / 10; background: color-mix(in srgb, var(--aubergine) 22%, var(--bg)); border-bottom: 1px solid var(--line); padding: 0.75rem 1rem; }
+  .pc__body { display: flex; flex-direction: column; gap: 0.85rem; padding: 1.35rem 1.4rem 1.5rem; flex: 1; }
+  .pc__meta { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+  .pc h3 { font-size: 1.65rem; }
+  .pc__link { text-decoration: none; }
+  .pc__link::after { content: ''; position: absolute; inset: 0; z-index: 2; }
+  .pc__sum { font-size: 0.97rem; line-height: 1.55; }
+  .pc .chips { margin-top: auto; }
+  .pc__actions { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: center; padding-top: 0.4rem; border-top: 1px solid var(--line); margin-top: 0.2rem; }
+  .pc__more { font-weight: 560; font-size: 0.95rem; color: var(--accent); text-decoration: none; margin-right: auto; padding-block: 0.5rem; }
+  .pc__more::after { content: ' →'; display: inline-block; transition: transform var(--t-med) var(--ease); }
+  .pc:hover .pc__more::after { transform: translateX(4px); }
+  .pc__ext { position: relative; z-index: 3; font-size: 0.9rem; padding-block: 0.5rem; color: var(--text-dim); }
+  .pc__ext:hover { color: var(--accent); }
+  @media (hover: none), (prefers-reduced-motion: reduce) { .pc { transform: none; } }
+</style>

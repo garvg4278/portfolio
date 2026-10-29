@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import SkillMap from '../components/SkillMap.astro';
+import Poster from '../components/Poster.astro';
+---
+<Base title="Skills" path="/skills/" description="A map of Garv Gupta's skills in DevOps, cloud, SQL, cybersecurity and software engineering, separated into hands-on experience, working knowledge and topics being learned, each linked to evidence.">
+  <section class="page-head">
+    <div class="container sh">
+      <div>
+        <h1>Skills, with proof attached.</h1>
+        <p class="lead">Every skill is marked by how I have used it, and links to the project or certificate that backs it up. There are no percentage bars, because a number cannot say what I have built.</p>
+      </div>
+      <div class="scene scene--stage sh__scene" data-theme="dark" data-scene="stack"><Poster variant="stack" /></div>
+    </div>
+  </section>
+  <div class="container" style="padding-bottom: var(--section)">
+    <SkillMap />
+  </div>
+</Base>
+
+<style>
+  .sh { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: center; }
+  .sh__scene { aspect-ratio: 1; width: min(100%, 360px); justify-self: end; }
+  .sh__scene :global(.poster) { padding: 4%; }
+  @media (max-width: 900px) { .sh { grid-template-columns: 1fr; } .sh__scene { width: min(60vw, 260px); justify-self: start; } }
+</style>
+
+<script>
+  import { initPageScene } from '../scripts/features/page-scene.js';
+  initPageScene('.sh__scene', 'stack');
+</script>

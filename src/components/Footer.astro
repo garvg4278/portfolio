@@ -1,0 +1,43 @@
+---
+import { site } from '../data/site';
+import CopyButton from './CopyButton.astro';
+import { formatDate } from '../lib/format.js';
+---
+<footer class="foot">
+  <div class="container foot__grid">
+    <div class="foot__id">
+      <p class="foot__name">Garv Gupta</p>
+      <p class="dim">Computer Science Engineering graduate, 2026. DevOps and cloud engineering.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        {site.nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <ul class="foot__links">
+      <li class="foot__mail"><a href={`mailto:${site.email}`}>{site.email}</a><CopyButton text={site.email} name="email address" /></li>
+      <li><a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a href={site.github} target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <li><a href={site.resume} download>Resume (PDF)</a></li>
+    </ul>
+  </div>
+  <div class="container foot__base mono">
+    <span>© {site.year} Garv Gupta</span>
+    <span>Last updated <time datetime={site.buildDate}>{formatDate(site.buildDate)}</time></span>
+    <span>No cookies or analytics. Your theme choice stays in this browser.</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<style>
+  .foot { border-top: 1px solid var(--line); background: var(--surface-1); padding-block: clamp(3rem, 6vw, 5rem) 1.5rem; margin-top: 0; }
+  .foot__grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 2.5rem; }
+  .foot__name { font-family: var(--font-display); font-size: 2rem; line-height: 1; margin-bottom: 0.75rem; }
+  .foot ul { display: grid; gap: 0.35rem; }
+  .foot__mail { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+  .foot a { text-decoration: none; display: inline-block; padding-block: 0.2rem; }
+  .foot a:hover { text-decoration: underline; }
+  .foot__base { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; justify-content: space-between; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--text-faint); }
+  .foot__base a { color: var(--text-dim); }
+  @media (max-width: 760px) { .foot__grid { grid-template-columns: 1fr; gap: 2rem; } }
+</style>

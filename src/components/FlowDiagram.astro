@@ -1,0 +1,53 @@
+---
+import type { FlowStep } from '../types';
+const { title, steps, id } = Astro.props as { title: string; steps: FlowStep[]; id: string };
+---
+<figure class="flow" data-flow>
+  <figcaption class="mono dim">{title}. Select a step to read what happens there.</figcaption>
+  <ol class="flow__steps">
+    {steps.map((s, i) => (
+      <li class:list={['flow__step', i === 0 && 'is-on']}>
+        <button type="button" data-i={i} aria-controls={`${id}-panel`} aria-current={i === 0 ? 'step' : undefined}>
+          <span class="flow__n mono">{i + 1}</span>
+          <span class="flow__l">{s.label}</span>
+        </button>
+      </li>
+    ))}
+  </ol>
+  <div class="flow__panel" id={`${id}-panel`} aria-live="polite">
+    <h4 data-title>{steps[0].label}</h4>
+    <p class="dim" data-detail>{steps[0].detail}</p>
+  </div>
+  <script type="application/json" data-steps set:html={JSON.stringify(steps)} />
+</figure>
+
+<style>
+  .flow { margin: 0; display: grid; gap: 1.25rem; }
+  .flow__steps { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0; counter-reset: s; }
+  .flow__step { position: relative; padding-right: 2rem; }
+  .flow__step:last-child { padding-right: 0; }
+  .flow__step::after { content: ''; position: absolute; right: 0; top: 50%; width: 2rem; height: 1px; background: repeating-linear-gradient(90deg, var(--line-strong) 0 4px, transparent 4px 8px); }
+  .flow__step:last-child::after { display: none; }
+  .flow__step.is-link::after { background: var(--accent); }
+  .flow__step.is-link::before { content: ''; position: absolute; right: 0; top: calc(50% - 3px); width: 7px; height: 7px; border-radius: 50%; background: var(--fg); animation: pkt 1.6s var(--ease) infinite; }
+  @keyframes pkt { from { transform: translateX(-2rem); opacity: 0; } 20% { opacity: 1; } to { transform: translateX(0); opacity: 0.9; } }
+  .flow__step button { width: 100%; min-height: 76px; text-align: left; display: grid; gap: 0.35rem; align-content: center; padding: 0.8rem 1rem; background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--r-sm); transition: border-color var(--t-fast), background var(--t-fast), transform var(--t-med) var(--ease); }
+  .flow__step button:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+  .flow__step.is-on button { border-color: var(--accent); background: var(--surface-2); }
+  .flow__n { color: var(--accent); }
+  .flow__l { font-weight: 560; line-height: 1.25; font-size: 0.98rem; }
+  .flow__panel { border-left: 2px solid var(--accent); padding: 0.25rem 0 0.25rem 1.25rem; min-height: 5.5rem; max-width: 70ch; }
+  .flow__panel h4 { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  @media (max-width: 900px) {
+    .flow__steps { grid-auto-flow: row; gap: 1.5rem; }
+    .flow__step { padding-right: 0; }
+    .flow__step::after { right: auto; left: 1.5rem; top: 100%; width: 1px; height: 1.5rem; background: repeating-linear-gradient(180deg, var(--line-strong) 0 4px, transparent 4px 8px); }
+    .flow__step.is-link::before { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .flow__step.is-link::before { display: none; } }
+</style>
+
+<script>
+  import { initFlowDiagrams } from '../scripts/features/flow-diagram.js';
+  initFlowDiagrams();
+</script>

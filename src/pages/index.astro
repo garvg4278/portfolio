@@ -1,0 +1,206 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FlowThumb from '../components/FlowThumb.astro';
+import { site } from '../data/site';
+import { projects } from '../data/projects';
+import { featuredProjects } from '../lib/projects.js';
+import { skillGroups } from '../data/skills';
+import { credentials } from '../data/credentials';
+import { qualities, education } from '../data/about';
+
+const feats = featuredProjects(projects);
+const core = credentials.filter((c) => c.group === 'cloud-security');
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: site.url,
+  description: site.description,
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'Chandigarh University' },
+  sameAs: [site.github, site.linkedin],
+};
+const tints = ['var(--surface-1)', 'color-mix(in srgb, var(--accent-2) 24%, var(--bg))', 'var(--surface-2)'];
+---
+<Base title="Garv Gupta | DevOps & Cloud Engineering Graduate" path="/" jsonLd={jsonLd}>
+  <Hero />
+
+  <section class="section" aria-labelledby="direction">
+    <div class="container direction">
+      <div data-reveal>
+        <h2 id="direction">I build the path software takes to production.</h2>
+      </div>
+      <div class="direction__body" data-reveal>
+        <p class="lead">Linux, containers, CI/CD and automation are the parts of a system I want to own: the steps between a commit and a running service. I am looking for entry-level DevOps, cloud and backend engineering roles on teams that care about deployment quality.</p>
+        <dl class="facts">
+          <div><dt>Degree</dt><dd>B.E. Computer Science Engineering, Chandigarh University, 2026. CGPA 7.68/10</dd></div>
+          <div><dt>Focus</dt><dd>Linux, Docker, GitHub Actions, AWS fundamentals, Bash and Python automation</dd></div>
+          <div><dt>Looking for</dt><dd>Entry-level DevOps, cloud and backend roles, and internships. Willing to work from the office in Gurgaon</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="work">
+    <div class="container">
+      <SectionHeading id="work" title="Selected work" lead="Three projects that show the path from code to a running, checked system." />
+      <div class="feats">
+        {feats.map((p, i) => (
+          <article class="feat" data-reveal style={`--tint:${tints[i]}`} data-flip={i % 2}>
+            <div class="feat__visual" data-theme="dark"><FlowThumb steps={p.flow.steps} uid={`h-${p.slug}`} /></div>
+            <div class="feat__text">
+              <p class="mono dim">{p.category}</p>
+              <h3><a href={`/projects/${p.slug}/`}>{p.name}</a></h3>
+              <p class="dim">{p.summary}</p>
+              {p.contribution && <ul class="feat__did">{p.contribution.slice(0, 2).map((c) => <li>{c}</li>)}</ul>}
+              <div class="feat__links">
+                <a class="link-arrow" href={`/projects/${p.slug}/`}>Read the case study
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg>
+                </a>
+                {p.repo && <a href={p.repo} target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> repository (opens in a new tab)</span></a>}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="more" data-reveal><a class="btn btn--ghost" href="/projects/">All {projects.length} projects</a></p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="skills">
+    <div class="container">
+      <SectionHeading id="skills" title="Technical skills" lead="What I have used in projects I built. The full map separates hands-on work from working knowledge and from what I am still learning." />
+      <div class="sk-grid" data-reveal>
+        {skillGroups.map((g) => (
+          <div class="sk-col">
+            <h3>{g.title}</h3>
+            <ul>
+              {g.skills.filter((s) => s.level === 'hands-on').slice(0, 5).map((s) => <li>{s.name}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <p class="more" data-reveal><a class="link-arrow" href="/skills/">Open the full skills map
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="edu">
+    <div class="container edu">
+      <div>
+        <SectionHeading id="edu" title="Education and certifications" />
+        <ul class="edu__list" data-reveal>
+          {education.slice(0, 1).map((e) => (
+            <li><p class="mono dim">{e.years}</p><p class="edu__t">{e.title}</p><p class="dim">{e.place}. {e.note}</p></li>
+          ))}
+        </ul>
+        <p class="dim measure" data-reveal>The credentials are online course and professional-certificate completions, one proctored NPTEL exam and one HackerRank assessment. They are listed with their type and a verification link where the issuer provides one.</p>
+        <p data-reveal style="margin-top:1.25rem"><a class="link-arrow" href="/education/">All credentials
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></a></p>
+      </div>
+      <ul class="certs" data-reveal>
+        {core.map((c) => (
+          <li><a href={`/education/#${c.slug}`}><span class="certs__t">{c.title}</span><span class="dim">{c.issuer}</span><span class="mono dim">{c.date}</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ach">
+    <div class="container">
+      <SectionHeading id="ach" title="Verified achievements" lead="Each item below can be checked against a certificate or a project." />
+      <ul class="ach" data-reveal>
+        <li><h3>Elite grade in an NPTEL course</h3><p class="dim">Foundation of Cloud, IoT, Edge and ML, IIT Kanpur, Feb–Apr 2025. Consolidated score 79%, with 25/25 on assignments and a proctored exam.</p></li>
+        <li><h3>Three HackerRank skill certifications</h3><p class="dim">SQL (Intermediate), Python (Basic) and Problem Solving (Basic), passed in 2025, alongside IBM and Meta database courses.</p></li>
+        <li><h3>AWS Cloud Solutions Architect professional certificate</h3><p class="dim">Four-course Coursera programme completed on 14 February 2026, including exam preparation for the Associate-level AWS certification.</p></li>
+        <li><h3>Pipelines with security scanning</h3><p class="dim">SSCPrep runs gitleaks, SBOM generation and Grype in CI. ShipForge and the Sweet Shop system publish Docker images from Jenkins.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="qual">
+    <div class="container">
+      <SectionHeading id="qual" title="How I work" lead="Each quality is tied to something I built or completed." />
+      <ul class="qual" data-reveal>
+        {qualities.map((q) => (
+          <li><h3>{q.title}</h3><p class="dim">{q.short}</p></li>
+        ))}
+      </ul>
+      <p class="more" data-reveal><a class="link-arrow" href="/about/#evidence">See the evidence
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="section cta" aria-labelledby="cta">
+    <div class="container cta__inner" data-reveal>
+      <h2 id="cta">Hiring for a DevOps, cloud or backend role? Let us talk.</h2>
+      <div class="cta__actions">
+        <a class="btn" href={`mailto:${site.email}`}>Email me</a>
+        <a class="btn btn--ghost" href="/contact/">Contact page</a>
+        <a class="btn btn--ghost" href={site.resume} download>Download Resume</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .direction { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+  .direction h2 { font-size: var(--fs-h1); max-width: 12ch; }
+  .direction__body { display: grid; gap: 2rem; }
+  .facts { display: grid; margin: 0; border-top: 1px solid var(--line); }
+  .facts > div { display: grid; grid-template-columns: 8rem 1fr; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+  .facts dt { color: var(--text-faint); font-size: 0.95rem; }
+  .facts dd { margin: 0; }
+  .feats { display: grid; gap: clamp(1.25rem, 3vw, 2rem); }
+  .feat { display: grid; grid-template-columns: 1.05fr 1fr; background: var(--tint); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; min-height: 22rem; box-shadow: var(--shadow-layer); transition: border-color var(--t-med); }
+  .feat:hover, .feat:focus-within { border-color: var(--line-strong); }
+  .feat[data-flip='1'] .feat__visual { order: 2; border-right: 0; border-left: 1px solid var(--line); }
+  .feat__visual { padding: 1.5rem; border-right: 1px solid var(--line); background: color-mix(in srgb, var(--aubergine) 14%, var(--bg)); display: grid; place-items: center; }
+  .feat__text { padding: clamp(1.5rem, 3vw, 2.5rem); display: grid; gap: 0.9rem; align-content: center; }
+  .feat h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+  .feat h3 a { text-decoration: none; }
+  .feat h3 a:hover { color: var(--accent); }
+  .feat__did { display: grid; gap: 0.5rem; font-size: 0.95rem; color: var(--text-dim); }
+  .feat__did li { padding-left: 1rem; position: relative; }
+  .feat__did li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 6px; height: 1px; background: var(--accent); }
+  .feat__links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; margin-top: 0.25rem; }
+  .more { margin-top: clamp(1.75rem, 3vw, 2.5rem); }
+  .sk-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+  .sk-col h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .sk-col ul { display: grid; gap: 0.4rem; color: var(--text-dim); font-size: 0.95rem; }
+  .edu { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+  .edu__list { margin-bottom: 1.5rem; }
+  .edu__t { font-family: var(--font-display); font-size: 1.7rem; line-height: 1.15; margin-block: 0.25rem; }
+  .certs { border-top: 1px solid var(--line); }
+  .certs a { display: grid; grid-template-columns: 1fr auto; gap: 0.1rem 1rem; padding: 1rem 0.25rem; border-bottom: 1px solid var(--line); text-decoration: none; transition: background var(--t-fast), padding var(--t-med) var(--ease); }
+  .certs a:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); padding-left: 0.9rem; }
+  .certs__t { font-weight: 560; }
+  .certs a .mono { grid-column: 2; grid-row: 1; align-self: center; }
+  .ach { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .ach li { padding: 1.5rem 2rem 1.75rem 0; border-bottom: 1px solid var(--line); display: grid; gap: 0.5rem; align-content: start; }
+  .ach li:nth-child(even) { padding-left: 2rem; padding-right: 0; border-left: 1px solid var(--line); }
+  .ach h3 { font-size: 1.55rem; }
+  .qual { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .qual li { padding: 1.4rem; border: 1px solid var(--line); border-radius: var(--r-md); background: color-mix(in srgb, var(--bg) 40%, transparent); display: grid; gap: 0.6rem; align-content: start; }
+  .qual h3 { font-size: 1.4rem; }
+  .cta { background: var(--surface-2); border-top: 1px solid var(--line); text-align: left; }
+  .cta__inner { display: grid; gap: 2rem; }
+  .cta h2 { font-size: var(--fs-h1); max-width: 18ch; }
+  .cta__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+  @media (max-width: 1000px) {
+    .sk-grid { grid-template-columns: repeat(2, 1fr); }
+    .qual { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .direction, .edu { grid-template-columns: 1fr; }
+    .feat { grid-template-columns: 1fr; min-height: 0; }
+    .feat[data-flip='1'] .feat__visual { order: 0; border-left: 0; }
+    .feat__visual { border-right: 0; border-bottom: 1px solid var(--line); }
+    .ach { grid-template-columns: 1fr; }
+    .ach li:nth-child(even) { padding-left: 0; border-left: 0; }
+    .ach li { padding-right: 0; }
+    .facts > div { grid-template-columns: 1fr; gap: 0.15rem; }
+  }
+  @media (max-width: 560px) { .sk-grid, .qual { grid-template-columns: 1fr; } }
+</style>

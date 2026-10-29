@@ -1,0 +1,79 @@
+---
+import Poster from './Poster.astro';
+import { site, layers } from '../data/site';
+---
+<section class="hero" id="hero" aria-labelledby="hero-name" data-theme="dark">
+  <div class="scene hero__scene" data-scene="stack"><Poster variant="stack" /></div>
+
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <h1 class="hero__name" id="hero-name"><span><b>Garv</b></span><span><b>Gupta</b></span></h1>
+      <p class="hero__headline">{site.headline}</p>
+      <p class="lead">{site.intro}</p>
+      <div class="hero__actions">
+        <a class="btn" href="/projects/">Explore My Work
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg>
+        </a>
+        <a class="btn btn--ghost" href={site.resume} download>Download Resume</a>
+        <a class="link-arrow" href="/contact/">Contact me
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="layers" data-layers>
+      <p class="layers__label mono" id="layers-label">Five layers, one stack. Select a layer, on the object or below.</p>
+      <ul class="layers__list" aria-labelledby="layers-label">
+        {layers.map((l, i) => (
+          <li><button type="button" data-i={i} aria-pressed="false"><span class="mono">{i + 1}</span>{l.name}</button></li>
+        ))}
+      </ul>
+      <div class="layers__out" aria-live="polite">
+        <p data-text class="dim">Nothing selected yet.</p>
+        <a data-link class="link-arrow" href="/projects/" hidden>See the evidence
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script type="application/json" id="layers-data" set:html={JSON.stringify(layers)} />
+</section>
+
+<style>
+  .hero { background: var(--bg); position: relative; min-height: min(100svh, 60rem); display: flex; align-items: flex-end; padding-top: var(--nav-h); overflow: clip; border-bottom: 1px solid var(--line); }
+  .hero__scene { position: absolute; inset: 0; z-index: 0; opacity: calc(1 - var(--p, 0) * 0.9); }
+  .hero__scene :global(.poster) { padding: 6% 2% 18% 38%; }
+  .hero__inner { position: relative; z-index: 1; display: grid; gap: clamp(1.5rem, 3vw, 2.25rem); padding-block: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 2vw, 1.75rem); pointer-events: none; }
+  .hero__inner :global(a), .hero__inner :global(button) { pointer-events: auto; }
+  .hero__copy { max-width: 44rem; display: grid; gap: 1.1rem; justify-items: start; }
+  .hero__name { font-size: var(--fs-display); line-height: 0.86; letter-spacing: -0.02em; text-transform: uppercase; }
+  .hero__name span { display: block; overflow: hidden; padding-block: 0.04em; }
+  .hero__name b { display: block; font-weight: 400; transform: translateY(104%); animation: rise 1000ms var(--ease) 80ms forwards; }
+  .hero__name span:nth-child(2) b { animation-delay: 220ms; }
+  @keyframes rise { to { transform: none; } }
+  .hero__headline { font-size: clamp(1.05rem, 1.7vw, 1.35rem); font-weight: 520; color: var(--accent); max-width: 36ch; line-height: 1.35; }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem 1.1rem; align-items: center; padding-top: 0.4rem; }
+  .layers { display: grid; gap: 0.85rem; max-width: 62rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  .layers__label { color: var(--text-faint); max-width: 70ch; }
+  .layers__list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; }
+  .layers__list button { width: 100%; min-height: 52px; display: flex; gap: 0.6rem; align-items: center; text-align: left; padding: 0.6rem 0.8rem; font-size: 0.9rem; line-height: 1.2; background: color-mix(in srgb, var(--aubergine) 22%, var(--bg)); border: 1px solid var(--line); border-radius: var(--r-sm); transition: border-color var(--t-fast), background var(--t-fast), transform var(--t-med) var(--ease); }
+  .layers__list button .mono { color: var(--accent); }
+  .layers__list button:hover, .layers__list button[data-hover='true'] { border-color: var(--line-strong); transform: translateY(-2px); }
+  .layers__list button[aria-pressed='true'] { background: var(--surface-2); border-color: var(--accent); }
+  .layers__out { min-height: 3.4rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: baseline; max-width: 70ch; }
+  @media (max-width: 900px) {
+    .hero { min-height: auto; padding-top: calc(var(--nav-h) + min(46svh, 22rem)); }
+    .hero__scene { inset: 0 0 auto 0; height: calc(var(--nav-h) + min(46svh, 22rem)); }
+    .hero__scene :global(.poster) { padding: 10% 14% 0 14%; }
+    .layers__list { display: flex; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: var(--gutter); padding-bottom: 0.4rem; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
+    .layers__list li { flex: 0 0 auto; scroll-snap-align: start; }
+    .layers__list button { width: auto; white-space: nowrap; }
+  }
+  @media (max-width: 520px) { .hero__actions .btn { width: 100%; } }
+  @media (prefers-reduced-motion: reduce) { .hero__name b { transform: none; animation: none; } }
+</style>
+
+<script>
+  import { initHeroLayers } from '../scripts/features/hero-layers.js';
+  initHeroLayers();
+</script>

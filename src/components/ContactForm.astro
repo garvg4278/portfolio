@@ -1,0 +1,67 @@
+---
+import { site } from '../data/site';
+---
+<form class="cf" novalidate data-endpoint={site.formEndpoint} data-to={site.email} aria-labelledby="cf-title">
+  <h2 id="cf-title">Send a message</h2>
+  <p class="dim cf__how">{site.formEndpoint
+    ? 'Your message is sent through a form service. You will see a confirmation only after it has been accepted.'
+    : `This form opens your email app with the message filled in. Nothing is sent until you press Send there.`}</p>
+  <div class="cf__summary" role="alert" tabindex="-1" hidden></div>
+
+  <div class="field">
+    <label for="cf-name">Name</label>
+    <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-err" />
+    <p class="err" id="cf-name-err" hidden></p>
+  </div>
+  <div class="field">
+    <label for="cf-email">Email</label>
+    <input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-err" />
+    <p class="err" id="cf-email-err" hidden></p>
+  </div>
+  <div class="field field--wide">
+    <label for="cf-subject">Subject</label>
+    <input id="cf-subject" name="subject" type="text" required aria-describedby="cf-subject-err" />
+    <p class="err" id="cf-subject-err" hidden></p>
+  </div>
+  <div class="field field--wide">
+    <label for="cf-message">Message</label>
+    <textarea id="cf-message" name="message" rows="6" required aria-describedby="cf-message-err cf-message-hint"></textarea>
+    <p class="hint mono dim" id="cf-message-hint">At least 20 characters.</p>
+    <p class="err" id="cf-message-err" hidden></p>
+  </div>
+  <div class="hp" aria-hidden="true"><label>Leave this empty<input name="_gotcha" tabindex="-1" autocomplete="off" /></label></div>
+
+  <div class="cf__actions">
+    <button class="btn" type="submit"><span data-label>{site.formEndpoint ? 'Send message' : 'Open in email app'}</span></button>
+    <button class="btn btn--ghost" type="button" data-copy hidden>Copy message</button>
+    <button class="btn btn--ghost" type="button" data-clear>Clear form</button>
+  </div>
+  <p class="cf__status" role="status" aria-live="polite" data-status></p>
+</form>
+
+<style>
+  .cf { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 1.25rem; padding: clamp(1.25rem, 3vw, 2.25rem); background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: var(--shadow-layer); }
+  .cf > h2 { grid-column: 1 / -1; font-size: 2rem; }
+  .cf__how, .cf__summary, .cf__actions, .cf__status, .field--wide { grid-column: 1 / -1; }
+  .field { display: grid; gap: 0.4rem; align-content: start; }
+  label { font-weight: 540; font-size: 0.95rem; }
+  input, textarea { width: 100%; min-height: 48px; padding: 0.75rem 0.9rem; font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--line-strong); border-radius: var(--r-sm); transition: border-color var(--t-fast), box-shadow var(--t-fast); }
+  textarea { resize: vertical; min-height: 9rem; }
+  input:hover, textarea:hover { border-color: var(--accent-2); }
+  input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-color: var(--accent); }
+  input[aria-invalid='true'], textarea[aria-invalid='true'] { border-color: var(--fg); box-shadow: 0 0 0 1px var(--fg); }
+  .err { color: var(--fg); font-size: 0.9rem; display: flex; gap: 0.5rem; align-items: baseline; }
+  .err::before { content: '✕'; font-family: var(--font-mono); color: var(--accent); }
+  .hint { font-size: 0.75rem; }
+  .cf__summary { border: 1px solid var(--fg); border-left-width: 4px; padding: 0.8rem 1rem; border-radius: var(--r-sm); }
+  .cf__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .cf__status { min-height: 1.5rem; }
+  .cf__status[data-kind='ok'] { color: var(--accent); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  @media (max-width: 640px) { .cf { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  import { initContactForm } from '../scripts/features/contact-form.js';
+  initContactForm();
+</script>

@@ -1,8 +1,10 @@
-name: Build and Push Docker Image
+name: Build, check and publish
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -10,31 +12,68 @@ permissions:
   packages: write
 
 jobs:
-  build-and-push:
+  check:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Production build
+        run: npm run build
+
+      - name: Check internal links and assets
+        run: npm run check:links
+
+  publish:
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: ghcr.io/garvg4278/garv-portfolio
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Log in to GitHub Container Registry
-        run: |
-          echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+        run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
 
-      - name: Build and push Docker image
-        env:
-          IMAGE_NAME: ghcr.io/garvg4278/garv-portfolio
+      - name: Build image (multi-stage: Node build, nginx runtime)
         run: |
-          echo "Building image..."
-          docker build -t $IMAGE_NAME:latest .
-
           SHORT_SHA=${GITHUB_SHA::7}
-          docker tag $IMAGE_NAME:latest $IMAGE_NAME:$SHORT_SHA
+          docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$SHORT_SHA .
 
-          echo "Pushing image tags..."
+      - name: Smoke test the image
+        run: |
+          docker run -d --name portfolio-test -p 8080:80 $IMAGE_NAME:latest
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            curl -fsS -o /dev/null http://127.0.0.1:8080/ && break || sleep 1
+          done
+          curl -fsS http://127.0.0.1:8080/ | grep -q "Garv"
+          curl -fsS -o /dev/null http://127.0.0.1:8080/projects/sscprep/
+          curl -fsS -o /dev/null http://127.0.0.1:8080/resume/Garv_Gupta_Resume.pdf
+          docker rm -f portfolio-test
+
+      - name: Push image tags
+        run: |
+          SHORT_SHA=${GITHUB_SHA::7}
           docker push $IMAGE_NAME:latest
           docker push $IMAGE_NAME:$SHORT_SHA
-
-          echo "Pushed:"
-          echo " - $IMAGE_NAME:latest"
-          echo " - $IMAGE_NAME:$SHORT_SHA"
+          echo "Pushed $IMAGE_NAME:latest and $IMAGE_NAME:$SHORT_SHA"

@@ -1,0 +1,59 @@
+---
+import { typeNote } from '../data/credentials';
+import type { Credential } from '../types';
+const { items } = Astro.props as { items: Credential[] };
+---
+<ul class="cg">
+  {items.map((c, i) => (
+    <li id={c.slug} data-reveal style={`--i:${i % 3}`}>
+      <article class="cc">
+        <button class="cc__thumb" type="button" data-full={`/certificates/${c.slug}-full.webp`} data-title={c.title} aria-label={`View certificate: ${c.title}`}>
+          <img src={`/certificates/${c.slug}-thumb.webp`} width="640" height="495" loading="lazy" decoding="async" alt={`Certificate: ${c.title}, issued by ${c.issuer}, ${c.date}`} />
+          <span class="cc__view mono">View certificate</span>
+        </button>
+        <div class="cc__body">
+          <p class="mono dim cc__type"><span>{c.type}</span><span>{c.date}</span></p>
+          <h3>{c.title}</h3>
+          <p class="cc__issuer">{c.issuer}</p>
+          <p class="dim cc__covers">{c.covers}</p>
+          {c.highlight && <p class="cc__hl">{c.highlight}</p>}
+          <p class="mono dim cc__note">{typeNote[c.type]}</p>
+          <div class="cc__foot">
+            <span class="chip">{c.area}</span>
+            {c.verifyUrl
+              ? <a href={c.verifyUrl} target="_blank" rel="noopener noreferrer">Verify credential<span class="sr-only"> for {c.title} (opens in a new tab)</span></a>
+              : <span class="mono dim">Verify with the QR code on the certificate</span>}
+          </div>
+          {c.credentialId && <p class="mono dim">ID {c.credentialId}</p>}
+        </div>
+      </article>
+    </li>
+  ))}
+</ul>
+
+
+<style>
+  .cg { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .cg > li { display: flex; }
+  .cc { display: flex; flex-direction: column; width: 100%; background: var(--surface-1); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; transition: border-color var(--t-med), box-shadow var(--t-med); }
+  .cc:hover, .cc:focus-within { border-color: var(--line-strong); box-shadow: 0 24px 48px -28px color-mix(in srgb, var(--accent-2) 70%, var(--bg)); }
+  .cc__thumb { position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; padding: 0; border: 0; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--aubergine) 30%, var(--bg)); overflow: hidden; }
+  .cc__thumb img { width: 100%; height: 100%; object-fit: contain; transition: transform 700ms var(--ease), filter var(--t-med); }
+  .cc__thumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, color-mix(in srgb, var(--accent) 28%, transparent) 50%, transparent 65%); transform: translateX(-120%); transition: transform 800ms var(--ease); pointer-events: none; }
+  .cc:hover .cc__thumb::after { transform: translateX(120%); }
+  .cc:hover .cc__thumb img { transform: scale(1.025); }
+  .cc__view { position: absolute; left: 0.6rem; bottom: 0.6rem; background: var(--bg); color: var(--fg); padding: 0.3rem 0.6rem; border: 1px solid var(--line-strong); border-radius: 3px; opacity: 0; transform: translateY(4px); transition: opacity var(--t-fast), transform var(--t-med) var(--ease); }
+  .cc__thumb:hover .cc__view, .cc__thumb:focus-visible .cc__view { opacity: 1; transform: none; }
+  @media (hover: none) { .cc__view { opacity: 1; transform: none; } }
+  .cc__body { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.2rem 1.3rem 1.4rem; flex: 1; }
+  .cc__type { display: flex; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+  .cc h3 { font-size: 1.45rem; }
+  .cc__issuer { font-weight: 520; font-size: 0.97rem; }
+  .cc__covers { font-size: 0.93rem; line-height: 1.5; }
+  .cc__hl { font-size: 0.93rem; border-left: 2px solid var(--accent); padding-left: 0.75rem; }
+  .cc__note { font-size: 0.72rem; }
+  .cc__foot { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--line); font-size: 0.92rem; }
+  .cc__foot a { padding-block: 0.4rem; }
+  @media (max-width: 1000px) { .cg { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .cg { grid-template-columns: 1fr; } }
+</style>

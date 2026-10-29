@@ -1,0 +1,30 @@
+---
+// Static architecture thumbnail: the project's real steps laid out as a snake (maths in src/lib/flow-layout.js).
+import { layoutFlow } from '../lib/flow-layout.js';
+const { steps, uid = 'x' } = Astro.props as { steps: { label: string }[]; uid?: string };
+const { nodes, edges, bw, bh, width: W, height: H } = layoutFlow(steps.map((s) => s.label));
+---
+<svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true" preserveAspectRatio="xMidYMid meet" class="ft">
+  <defs>
+    <pattern id={`${uid}-g`} width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#C8B8DB" stroke-opacity=".07"/></pattern>
+    <marker id={`${uid}-a`} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#C8B8DB" fill-opacity=".8"/></marker>
+  </defs>
+  <rect width={W} height={H} fill={`url(#${uid}-g)`} />
+  {edges.map((e) => <path d={e.d} class="edge" marker-end={`url(#${uid}-a)`} />)}
+  {nodes.map((nd) => (
+    <g transform={`translate(${nd.x - bw / 2} ${nd.y - bh / 2})`}>
+      <rect width={bw} height={bh} rx="2" class={nd.i === 0 ? 'node node--first' : 'node'} />
+      {nd.lines.map((l, li) => (
+        <text x={bw / 2} y={nd.lines.length === 1 ? bh / 2 + 3.4 : bh / 2 - 3 + li * 12.5} text-anchor="middle" class="lbl">{l}</text>
+      ))}
+    </g>
+  ))}
+</svg>
+
+<style>
+  .ft { width: 100%; height: 100%; }
+  .node { fill: color-mix(in srgb, var(--aubergine) 38%, var(--bg)); stroke: color-mix(in srgb, var(--accent) 34%, transparent); stroke-width: 1; }
+  .node--first { stroke: var(--accent); fill: color-mix(in srgb, var(--aubergine) 70%, var(--bg)); }
+  .edge { fill: none; stroke: var(--accent); stroke-opacity: 0.55; stroke-width: 1.1; stroke-dasharray: 3 3; }
+  .lbl { font-family: var(--font-mono); font-size: 9.6px; fill: var(--fg); }
+</style>

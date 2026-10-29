@@ -1,0 +1,64 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Poster from '../../components/Poster.astro';
+import { projects } from '../../data/projects';
+import { categories } from '../../data/categories';
+import { categorySlug as slug, categoriesPresent, countIn } from '../../lib/projects.js';
+const present = categoriesPresent(categories, projects);
+---
+<Base title="Projects" path="/projects/" description="Selected engineering projects by Garv Gupta: CI/CD and containers, backend systems, Linux automation, data validation and analytics.">
+  <section class="page-head">
+    <div class="container ph2">
+      <div>
+        <h1>Selected Work</h1>
+        <p class="lead">Engineering projects focused on automation, software systems, data, and practical problem-solving.</p>
+      </div>
+      <div class="scene scene--stage ph2__scene" data-theme="dark" data-scene="cubes"><Poster variant="cubes" /></div>
+    </div>
+  </section>
+
+  <section class="container pj" aria-label="Projects">
+    <div class="pj__bar" role="group" aria-label="Filter projects by category">
+      <button type="button" data-f="all" aria-pressed="true">All <span class="mono">{projects.length}</span></button>
+      {present.map((c) => (
+        <button type="button" data-f={slug(c)} aria-pressed="false">{c} <span class="mono">{countIn(projects, c)}</span></button>
+      ))}
+    </div>
+    <p class="pj__count mono dim" role="status" aria-live="polite" data-count>Showing {projects.length} projects.</p>
+    <p class="pj__legend mono dim">● Completed &nbsp; ◐ In progress &nbsp; ◇ Experimental</p>
+    <h2 class="sr-only">All projects</h2>
+    <ul class="pj__grid" data-grid>
+      {projects.map((p, i) => (
+        <li data-cat={slug(p.category)}><ProjectCard project={p} index={i} /></li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .ph2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: center; }
+  .ph2__scene { aspect-ratio: 1; width: min(100%, 340px); justify-self: end; }
+  @media (max-width: 900px) { .ph2 { grid-template-columns: 1fr; } .ph2__scene { width: min(55vw, 240px); justify-self: start; } }
+  .pj { padding-bottom: var(--section); }
+  .pj__bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  .pj__bar button { min-height: 44px; padding: 0.45rem 1rem; background: transparent; border: 1px solid var(--line); border-radius: var(--r-sm); color: var(--text-dim); display: inline-flex; gap: 0.5rem; align-items: baseline; transition: border-color var(--t-fast), background var(--t-fast), color var(--t-fast), transform var(--t-med) var(--ease); }
+  .pj__bar button:hover { border-color: var(--line-strong); color: var(--text); transform: translateY(-1px); }
+  .pj__bar button[aria-pressed='true'] { background: var(--surface-2); border-color: var(--accent); color: var(--text); }
+  .pj__count, .pj__legend { margin-bottom: 0.25rem; }
+  .pj__legend { margin-bottom: 1.75rem; }
+  .pj__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+  .pj__grid > li { display: block; min-width: 0; }
+  .pj__grid > li[hidden] { display: none; }
+  .pj__grid > li.pop { animation: pop 320ms var(--ease) both; }
+  @keyframes pop { from { opacity: 0; transform: translateY(10px); } }
+  @media (max-width: 1060px) { .pj__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 660px) { .pj__grid { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  import { initProjectFilter } from '../../scripts/features/project-filter.js';
+  import { initPageScene } from '../../scripts/features/page-scene.js';
+  initProjectFilter();
+  initPageScene('.ph2__scene', 'cubes');
+</script>

@@ -1,9 +1,12 @@
-# OS / editor
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+npm-debug.log*
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-
-# Node stuff (if ever used)
-node_modules/
-dist/
+__pycache__/

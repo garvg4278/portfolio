@@ -1,0 +1,67 @@
+---
+// Static fallback and first paint for the 3D scenes. Shown until WebGL is ready, and kept when it is unavailable.
+const { variant = 'stack' } = Astro.props;
+const slabs = [0, 1, 2, 3, 4].map((i) => {
+  const w = 150 * (1 - i * 0.07);
+  const h = w / 2, t = 13;
+  const cx = 300, cy = 372 - i * 52;
+  return { i, w, h, t, cx, cy };
+});
+---
+{variant === 'stack' && (
+  <svg class="poster" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+    <ellipse cx="300" cy="448" rx="230" ry="38" fill="none" stroke="#70587C" stroke-opacity=".5" />
+    <ellipse cx="300" cy="448" rx="150" ry="24" fill="none" stroke="#502F4C" stroke-opacity=".8" />
+    <line x1="300" y1="120" x2="300" y2="420" stroke="#C8B8DB" stroke-width="2" />
+    {slabs.map((s) => (
+      <g>
+        <path d={`M${s.cx - s.w} ${s.cy}L${s.cx} ${s.cy + s.h}L${s.cx} ${s.cy + s.h + s.t}L${s.cx - s.w} ${s.cy + s.t}Z`} fill="#1d1020" stroke="#C8B8DB" stroke-opacity=".4" />
+        <path d={`M${s.cx} ${s.cy + s.h}L${s.cx + s.w} ${s.cy}L${s.cx + s.w} ${s.cy + s.t}L${s.cx} ${s.cy + s.h + s.t}Z`} fill="#12091a" stroke="#C8B8DB" stroke-opacity=".4" />
+        <path d={`M${s.cx} ${s.cy - s.h}L${s.cx + s.w} ${s.cy}L${s.cx} ${s.cy + s.h}L${s.cx - s.w} ${s.cy}Z`} fill="#502F4C" fill-opacity=".85" stroke="#C8B8DB" stroke-opacity=".6" />
+      </g>
+    ))}
+    <g transform="translate(300 98)">
+      <path d="M0-46 34 0 0 46-34 0Z" fill="#C8B8DB" fill-opacity=".9" />
+      <path d="M0-46 0 46M-34 0H34" stroke="#502F4C" stroke-opacity=".6" />
+      <circle r="64" fill="none" stroke="#C8B8DB" stroke-opacity=".35" />
+    </g>
+  </svg>
+)}
+{variant === 'orbit' && (
+  <svg class="poster" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="#70587C" stroke-opacity=".8">
+      <ellipse cx="200" cy="200" rx="90" ry="34" transform="rotate(-18 200 200)" />
+      <ellipse cx="200" cy="200" rx="135" ry="50" stroke="#C8B8DB" transform="rotate(14 200 200)" />
+      <ellipse cx="200" cy="200" rx="180" ry="68" transform="rotate(-34 200 200)" />
+    </g>
+    <path d="M200 160 232 200 200 240 168 200Z" fill="#C8B8DB" />
+  </svg>
+)}
+{variant === 'lattice' && (
+  <svg class="poster" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+    <g stroke="#70587C" stroke-opacity=".9" fill="none">
+      <path d="M200 60 320 130 320 270 200 340 80 270 80 130Z" />
+      <path d="M200 60 200 200 80 270M200 200 320 270M80 130 200 200 320 130" />
+    </g>
+    <g fill="#C8B8DB"><circle cx="200" cy="60" r="5" /><circle cx="320" cy="130" r="5" /><circle cx="320" cy="270" r="5" /><circle cx="200" cy="340" r="5" /><circle cx="80" cy="270" r="5" /><circle cx="80" cy="130" r="5" /><circle cx="200" cy="200" r="7" /></g>
+  </svg>
+)}
+{variant === 'cubes' && (
+  <svg class="poster" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+    <g stroke="#C8B8DB" stroke-opacity=".55" stroke-width="1.2">
+      <path d="M200 70 300 125 300 245 200 300 100 245 100 125Z" fill="#2b1829" />
+      <path d="M200 70 200 190 100 245M200 190 300 245M100 125 200 190 300 125" fill="none" />
+      <path d="M200 190 200 300" fill="none" />
+    </g>
+    <path d="M200 70 300 125 200 190 100 125Z" fill="#502F4C" fill-opacity=".9" stroke="#C8B8DB" stroke-opacity=".6" />
+    <circle cx="200" cy="130" r="6" fill="#C8B8DB" />
+  </svg>
+)}
+{variant === 'prism' && (
+  <svg class="poster" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+    <ellipse cx="200" cy="200" rx="150" ry="56" fill="none" stroke="#70587C" transform="rotate(-14 200 200)" />
+    <path d="M200 120 255 200 200 280 145 200Z" fill="#C8B8DB" />
+    <path d="M200 120 200 280M145 200H255" stroke="#502F4C" />
+    <g fill="#F5EAEC"><circle cx="62" cy="228" r="6" /><circle cx="338" cy="170" r="6" /><circle cx="130" cy="150" r="6" /><circle cx="270" cy="250" r="6" /></g>
+  </svg>
+)}

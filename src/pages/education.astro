@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CertGrid from '../components/CertGrid.astro';
+import CertDialog from '../components/CertDialog.astro';
+import Poster from '../components/Poster.astro';
+import { credentials } from '../data/credentials';
+import { education } from '../data/about';
+const by = (g: string) => credentials.filter((c) => c.group === g).sort((a, b) => b.sort.localeCompare(a.sort));
+const total = credentials.length;
+---
+<Base title="Education and Certifications" path="/education/" description="Garv Gupta's degree and verified credentials: B.E. Computer Science Engineering (2026), AWS, Google, IBM, EC-Council, NPTEL and HackerRank.">
+  <section class="page-head">
+    <div class="container eh">
+      <div>
+      <h1>Education and certifications</h1>
+      <p class="lead">One degree and {total} credentials in cloud, DevOps, cybersecurity, SQL and programming, each labelled by what it is. Online course certificates are not degrees or licences, and the labels say so.</p>
+      </div>
+      <div class="scene scene--stage eh__scene" data-theme="dark" data-scene="prism" data-count={total}><Poster variant="prism" /></div>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="deg">
+    <div class="container">
+      <SectionHeading id="deg" title="Education" />
+      <ol class="deg" data-reveal>
+        {education.map((e, i) => (
+          <li class:list={[i === 0 && 'deg--main']}>
+            <span class="mono dim">{e.years}</span>
+            <div><h3>{e.title}</h3><p class="dim">{e.place}{e.note ? `. ${e.note}` : ''}</p></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="core">
+    <div class="container">
+      <SectionHeading id="core" title="Cloud, DevOps and security" lead="The credentials closest to the roles I am applying for." />
+      <CertGrid items={by('cloud-security')} />
+    </div>
+  </section>
+  <section class="section section--tint" aria-labelledby="found">
+    <div class="container">
+      <SectionHeading id="found" title="SQL and databases" lead="Two database courses and a timed HackerRank SQL assessment." />
+      <CertGrid items={by('sql')} />
+    </div>
+  </section>
+  <section class="section" aria-labelledby="prog">
+    <div class="container">
+      <SectionHeading id="prog" title="Programming and problem solving" lead="Two timed HackerRank assessments." />
+      <CertGrid items={by('programming')} />
+    </div>
+  </section>
+  <CertDialog />
+</Base>
+
+<style>
+  .eh { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: center; }
+  .eh__scene { aspect-ratio: 1; width: min(100%, 360px); justify-self: end; }
+  @media (max-width: 900px) { .eh { grid-template-columns: 1fr; } .eh__scene { width: min(60vw, 260px); justify-self: start; } }
+  .deg { display: grid; border-top: 1px solid var(--line); }
+  .deg li { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
+  .deg h3 { font-size: 1.7rem; margin-bottom: 0.3rem; }
+  .deg--main h3 { font-size: clamp(2rem, 3.4vw, 2.8rem); }
+  @media (max-width: 700px) { .deg li { grid-template-columns: 1fr; gap: 0.2rem; } }
+</style>
+
+<script>
+  import { initPageScene } from '../scripts/features/page-scene.js';
+  initPageScene('.eh__scene', 'prism');
+</script>

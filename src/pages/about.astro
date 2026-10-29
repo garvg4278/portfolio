@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+import Poster from '../components/Poster.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import { credentials } from '../data/credentials';
+import { qualities } from '../data/about';
+
+const fmt = (c: any) => ({ sort: c.sort, when: c.date, title: c.title, place: c.issuer, href: `/education/#${c.slug}` });
+const certEvents = credentials
+  .filter((c) => ['ibm-db-sql', 'ec-council', 'google-cybersecurity', 'ibm-devops', 'aws-solutions-architect'].includes(c.slug))
+  .map(fmt);
+const events = [
+  { sort: '2019-01', when: '2019 – 2020', title: 'Grade 10 (CBSE)', place: 'Delhi Public School, Agra', href: '' },
+  { sort: '2021-01', when: '2021 – 2022', title: 'Grade 12 (CBSE), Physics, Chemistry, Mathematics', place: 'Agra Vanasthali Vidyalaya, Agra', href: '' },
+  { sort: '2022-08', when: '2022', title: 'Started B.E. in Computer Science Engineering', place: 'Chandigarh University', href: '' },
+  ...certEvents,
+  { sort: '2026-06', when: '2026', title: 'Graduated, B.E. in Computer Science Engineering', place: 'Chandigarh University', href: '' },
+].sort((a, b) => a.sort.localeCompare(b.sort));
+---
+<Base title="About" path="/about/" description="Garv Gupta is a 2026 Computer Science Engineering graduate from Chandigarh University moving from security coursework into DevOps and cloud engineering.">
+  <section class="page-head">
+    <div class="container about-head">
+      <div>
+        <h1>A graduate moving from coursework to production systems.</h1>
+        <p class="lead">I finished my B.E. in Computer Science Engineering at Chandigarh University in 2026. This page covers how I got into DevOps and cloud work, how I approach problems, and what I am looking for next.</p>
+      </div>
+      <div class="scene scene--stage about-scene" data-theme="dark" data-scene="orbit"><Poster variant="orbit" /></div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container story">
+      <figure class="portrait" data-reveal>
+        <img src="/profile.webp" width="640" height="640" alt="Garv Gupta in a navy suit and striped tie" decoding="async" />
+      </figure>
+      <div class="story__text">
+        <div data-reveal>
+          <h2>Where I started</h2>
+          <div class="prose">
+            <p>I came to engineering through Linux and security. My first certificates were in cybersecurity: EC-Council's Attack and Defense Fundamentals in October 2024 and the Google Cybersecurity Professional Certificate in April 2025. That gave me a habit I still use: ask how a system fails and who should be able to do what.</p>
+            <p>At Chandigarh University I studied Computer Science Engineering from 2022 to 2026. Alongside the degree I built applications, automation scripts and data pipelines, listed on the <a href="/projects/">projects page</a>.</p>
+          </div>
+        </div>
+        <div data-reveal>
+          <h2>Why DevOps and cloud</h2>
+          <div class="prose">
+            <p>My interest moved from securing systems toward how software is packaged, tested and shipped the same way every time. I followed that through IBM's Introduction to DevOps (September 2025) and the AWS Cloud Solutions Architect professional certificate (February 2026), and put it into practice by containerizing projects and building GitHub Actions pipelines.</p>
+            <p>I am at the start of my professional career. My AWS work so far is coursework, and I am still learning Kubernetes and more advanced CI/CD patterns.</p>
+          </div>
+        </div>
+        <div data-reveal>
+          <h2>How I debug and learn</h2>
+          <div class="prose">
+            <p>When I build a service I ask three questions early: how will it fail, who should be allowed to do what, and how will it be deployed. If a task happens more than twice, I script it. Two of my projects, the log utilities and the data-validation pipeline, are built around catching failures early and making them visible.</p>
+          </div>
+        </div>
+        <div data-reveal>
+          <h2>How I choose what to build</h2>
+          <div class="prose">
+            <p>I keep practising by picking real problems that nobody has solved well, or that carry friction for the people who face them: finance, needless complexity, anything of that kind. SSCPrep is the clearest example. It is built for students to use, so it keeps changing whenever a new need shows up. My other projects are finished; the habit of looking for the next problem is what keeps my skills moving.</p>
+          </div>
+        </div>
+        <div data-reveal>
+          <h2>What I am looking for</h2>
+          <div class="prose">
+            <p>Entry-level DevOps, cloud and backend engineering roles, or internships, on a team that cares about deployment quality, observability and operational resilience. I am based in Agra and willing to work from the office in Gurgaon.</p>
+            <p><a class="link-arrow" href="/contact/">Get in touch</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="evidence" aria-labelledby="ev-h">
+    <div class="container">
+      <SectionHeading id="ev-h" title="Professional qualities, with evidence" lead="Each one points at something I built or completed, so you can judge it yourself." />
+      <div class="evs">
+        {qualities.map((q) => (
+          <article class="ev" data-reveal>
+            <h3>{q.title}</h3>
+            <ul>
+              {q.evidence.map((e) => <li><a href={e.href}>{e.text}</a></li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="tl-h">
+    <div class="container">
+      <SectionHeading id="tl-h" title="Timeline" lead="Dates are taken from certificates and academic records." />
+      <ol class="tl" data-reveal>
+        {events.map((e) => (
+          <li>
+            <span class="tl__when mono">{e.when}</span>
+            <div><p class="tl__t">{e.href ? <a href={e.href}>{e.title}</a> : e.title}</p><p class="dim">{e.place}</p></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .about-head { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; }
+  .about-head h1 { max-width: 15ch; }
+  .about-scene { aspect-ratio: 1; width: min(100%, 440px); justify-self: end; }
+  .story { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+  .portrait { margin: 0; position: sticky; top: calc(var(--nav-h) + 2rem); aspect-ratio: 1; border: 1px solid var(--line-strong); border-radius: var(--r-md); overflow: hidden; background: var(--aubergine); box-shadow: 10px 10px 0 -1px var(--surface-2), 11px 11px 0 0 var(--line); }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.55) contrast(1.05); mix-blend-mode: luminosity; opacity: 0.95; }
+  .story__text { display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
+  .story__text h2 { font-size: var(--fs-h2); margin-bottom: 1.1rem; }
+  .evs { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+  .ev { padding: 1.6rem; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-1); }
+  .ev h3 { margin-bottom: 1rem; font-size: 1.6rem; }
+  .ev ul { display: grid; gap: 0.75rem; }
+  .ev li { font-size: 0.97rem; color: var(--text-dim); padding-left: 1rem; position: relative; }
+  .ev li::before { content: ''; position: absolute; left: 0; top: 0.8em; width: 6px; height: 1px; background: var(--accent); }
+  .ev a { text-decoration-color: var(--line); }
+  .tl { border-left: 1px solid var(--line-strong); margin-left: 0.4rem; display: grid; gap: 0; }
+  .tl li { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: 0 0 1.75rem 1.75rem; position: relative; }
+  .tl li::before { content: ''; position: absolute; left: -5px; top: 0.55rem; width: 9px; height: 9px; background: var(--bg); border: 1px solid var(--accent); transform: rotate(45deg); }
+  .tl__when { color: var(--accent); padding-top: 0.2rem; }
+  .tl__t { font-weight: 560; }
+  @media (max-width: 900px) {
+    .about-head, .story { grid-template-columns: 1fr; }
+    .about-scene { width: min(70vw, 320px); justify-self: start; }
+    .portrait { position: static; max-width: 280px; }
+    .evs { grid-template-columns: 1fr; }
+    .tl li { grid-template-columns: 1fr; gap: 0.1rem; }
+  }
+</style>
+
+<script>
+  import { initPageScene } from '../scripts/features/page-scene.js';
+  initPageScene('.about-scene', 'orbit');
+</script>

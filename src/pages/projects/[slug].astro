@@ -1,0 +1,117 @@
+---
+import Base from '../../layouts/Base.astro';
+import FlowDiagram from '../../components/FlowDiagram.astro';
+import CodeSnippet from '../../components/CodeSnippet.astro';
+import { projects } from '../../data/projects';
+import type { Project } from '../../types';
+import { neighbours, caseStudySections, statusGlyph } from '../../lib/projects.js';
+export function getStaticPaths() {
+  return projects.map((p, i) => ({
+    params: { slug: p.slug },
+    props: { project: p, ...neighbours(projects, i) },
+  }));
+}
+const { project: p, prev, next } = Astro.props as { project: Project; prev: Project; next: Project };
+const glyph = statusGlyph(p.status);
+const sections = caseStudySections(p);
+const jsonLd = { '@context': 'https://schema.org', '@type': 'CreativeWork', name: p.name, description: p.summary, author: { '@type': 'Person', name: 'Garv Gupta' }, ...(p.repo ? { codeRepository: p.repo } : {}) };
+---
+<Base title={p.name} path={`/projects/${p.slug}/`} description={p.summary} jsonLd={jsonLd}>
+  <section class="page-head">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="crumb mono"><a href="/projects/">Projects</a><span aria-hidden="true">/</span><span>{p.name}</span></nav>
+      <h1 class="ph">{p.name}</h1>
+      <p class="lead">{p.summary}</p>
+      <div class="ph__meta">
+        <span class="status" data-s={p.status}><i aria-hidden="true">{glyph}</i>{p.status}</span>
+        <span class="mono dim">{p.category}</span>
+      </div>
+      <div class="ph__actions">
+        {p.repo && <a class="btn" href={p.repo} target="_blank" rel="noopener noreferrer">GitHub repository<span class="sr-only"> (opens in a new tab)</span></a>}
+        {p.live && <a class="btn btn--ghost" href={p.live} target="_blank" rel="noopener noreferrer">Live site<span class="sr-only"> (opens in a new tab)</span></a>}
+        {!p.repo && !p.live && <a class="btn btn--ghost" href="/contact/">Ask about this project</a>}
+      </div>
+    </div>
+  </section>
+
+  <div class="container cs">
+    <aside class="cs__rail" aria-label="Project summary">
+      <div class="rail">
+        <h2 class="rail__h">At a glance</h2>
+        <p class="mono dim">Stack</p>
+        <ul class="chips">{p.stack.map((s) => <li class="chip">{s}</li>)}</ul>
+        <p class="mono dim">On this page</p>
+        <ul class="toc">{sections.map((s) => <li><a href={`#${s.id}`}>{s.title}</a></li>)}</ul>
+      </div>
+    </aside>
+
+    <div class="cs__main">
+      <section class="blk" id="problem"><h2>Problem</h2>
+        <div class="prose"><p>{p.problem}</p>{p.why && <p><strong>Why I built it.</strong> {p.why}</p>}</div>
+      </section>
+      <section class="blk" id="how"><h2>How it works</h2>
+        {[p.flow, ...(p.extraFlows ?? [])].map((f, i) => (
+          <FlowDiagram title={f.title} steps={f.steps} id={`fd-${p.slug}-${i}`} />
+        ))}
+      </section>
+      <section class="blk" id="approach"><h2>Approach</h2><div class="prose"><p>{p.approach}</p></div>
+        {p.snippets?.map((sn) => <CodeSnippet title={sn.title} code={sn.code} />)}
+      </section>
+      {p.stackWhy && (
+        <section class="blk" id="stack"><h2>Technology and why</h2>
+          <dl class="why">{p.stackWhy.map((s) => <div><dt>{s.tech}</dt><dd class="dim">{s.why}</dd></div>)}</dl>
+        </section>
+      )}
+      {p.contribution && <section class="blk" id="contribution"><h2>What I implemented</h2><ul class="bul">{p.contribution.map((c) => <li>{c}</li>)}</ul></section>}
+      {p.challenges && <section class="blk" id="challenges"><h2>Technical challenges</h2><ul class="bul">{p.challenges.map((c) => <li>{c}</li>)}</ul></section>}
+      {p.decisions && <section class="blk" id="decisions"><h2>Decisions and trade-offs</h2><ul class="bul">{p.decisions.map((c) => <li>{c}</li>)}</ul></section>}
+      {p.verification && <section class="blk" id="verification"><h2>Testing and verification</h2><ul class="bul">{p.verification.map((c) => <li>{c}</li>)}</ul></section>}
+      {(p.results || p.outcome) && (
+        <section class="blk" id="results"><h2>Results</h2>
+          {p.results ? <ul class="bul">{p.results.map((c) => <li>{c}</li>)}</ul> : <div class="prose"><p>{p.outcome}</p></div>}
+        </section>
+      )}
+      {p.limitations && <section class="blk" id="limits"><h2>Limitations and next steps</h2><ul class="bul">{p.limitations.map((c) => <li>{c}</li>)}</ul></section>}
+
+      <nav class="pn" aria-label="More projects">
+        <a href={`/projects/${prev.slug}/`}><span class="mono dim">Previous</span><span>{prev.name}</span></a>
+        <a href={`/projects/${next.slug}/`} class="pn__next"><span class="mono dim">Next</span><span>{next.name}</span></a>
+      </nav>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .crumb { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem; color: var(--text-dim); }
+  .crumb a { color: var(--accent); }
+  .ph { font-size: clamp(2.5rem, 6vw, 4.8rem); max-width: 20ch; }
+  .ph__meta { display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center; margin-top: 1.5rem; }
+  .ph__actions { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 1.75rem; }
+  .cs { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2.4fr); gap: clamp(2rem, 6vw, 5rem); padding-bottom: var(--section); align-items: start; }
+  .rail { position: sticky; top: calc(var(--nav-h) + 1.5rem); display: grid; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--line-strong); }
+  .rail__h { font-size: 1.5rem; }
+  .toc { display: grid; gap: 0.15rem; font-size: 0.93rem; }
+  .toc a { display: block; padding: 0.3rem 0; text-decoration: none; color: var(--text-dim); }
+  .toc a:hover { color: var(--accent); }
+  .cs__main { display: grid; gap: 0; }
+  .blk { padding-block: clamp(1.75rem, 3vw, 2.75rem); border-top: 1px solid var(--line); display: grid; gap: 1.25rem; }
+  .blk:first-child { border-top: 0; padding-top: 0; }
+  .blk h2 { font-size: var(--fs-h2); }
+  .why { display: grid; gap: 0; margin: 0; }
+  .why > div { display: grid; grid-template-columns: 12rem 1fr; gap: 1rem; padding: 0.9rem 0; border-top: 1px solid var(--line); }
+  .why dt { font-weight: 560; }
+  .why dd { margin: 0; }
+  .bul { display: grid; gap: 0.85rem; max-width: 66ch; color: var(--text-dim); }
+  .bul li { padding-left: 1.25rem; position: relative; }
+  .bul li::before { content: ''; position: absolute; left: 0; top: 0.8em; width: 8px; height: 1px; background: var(--accent); }
+  .pn { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); margin-top: 2rem; }
+  .pn a { display: grid; gap: 0.25rem; padding: 1.1rem 1.25rem; border: 1px solid var(--line); border-radius: var(--r-md); text-decoration: none; font-family: var(--font-display); font-size: 1.35rem; line-height: 1.15; transition: border-color var(--t-fast), transform var(--t-med) var(--ease); }
+  .pn a:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .pn__next { text-align: right; }
+  @media (max-width: 900px) {
+    .cs { grid-template-columns: 1fr; }
+    .rail { position: static; }
+    .why > div { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+  @media (max-width: 560px) { .pn { grid-template-columns: 1fr; } .pn__next { text-align: left; } }
+</style>

@@ -1,0 +1,14 @@
+---
+// A button that copies `text` to the clipboard (behaviour in src/scripts/features/copy.js).
+const { text, label = 'Copy', name = 'text', class: cls = '' } = Astro.props as { text: string; label?: string; name?: string; class?: string };
+---
+<button type="button" class:list={['copybtn', cls]} data-copy-text={text} data-copy-name={name} aria-label={`${label} ${name}`}>
+  <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="7" width="9" height="9" rx="1.5"/><path d="M13 7V5.5A1.5 1.5 0 0 0 11.5 4h-6A1.5 1.5 0 0 0 4 5.5v6A1.5 1.5 0 0 0 5.5 13H7"/></svg>
+  <span data-copy-label>{label}</span>
+</button>
+
+<style>
+  .copybtn { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 40px; padding: 0.3rem 0.8rem; font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--text-dim); background: transparent; border: 1px solid var(--line-strong); border-radius: var(--r-sm); transition: color var(--t-fast), border-color var(--t-fast), background var(--t-fast); }
+  .copybtn:hover { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  .copybtn:active { transform: translateY(1px); }
+</style>

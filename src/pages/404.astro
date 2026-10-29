@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page not found" path="/404/" description="This page does not exist. Go back to the home page, the projects or the contact page." noindex={true}>
+  <section class="page-head">
+    <div class="container">
+      <h1>That page does not exist.</h1>
+      <p class="lead">The link may be old. These pages are available:</p>
+      <p style="margin-top:1.5rem;display:flex;gap:.9rem;flex-wrap:wrap"><a class="btn" href="/">Home</a><a class="btn btn--ghost" href="/projects/">Projects</a><a class="btn btn--ghost" href="/contact/">Contact</a></p>
+    </div>
+  </section>
+</Base>

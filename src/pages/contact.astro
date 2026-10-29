@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Poster from '../components/Poster.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site } from '../data/site';
+import CopyButton from '../components/CopyButton.astro';
+---
+<Base title="Contact" path="/contact/" description="Contact Garv Gupta about entry-level DevOps, cloud and backend engineering roles, internships and collaboration.">
+  <section class="page-head">
+    <div class="container ch">
+      <div>
+        <h1>Contact</h1>
+        <p class="lead">I am looking for entry-level DevOps, cloud and backend engineering roles and internships. Email is the fastest way to reach me.</p>
+      </div>
+      <div class="scene scene--stage ch__scene" data-theme="dark" data-scene="lattice"><Poster variant="lattice" /></div>
+    </div>
+  </section>
+
+  <section class="container cb">
+    <div class="cb__info">
+      <ul class="methods">
+        <li><span class="mono dim">Email</span><span class="methods__val"><a href={`mailto:${site.email}`}>{site.email}</a><CopyButton text={site.email} name="email address" /></span></li>
+        <li><span class="mono dim">LinkedIn</span><a href={site.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/garv-gupta<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><span class="mono dim">GitHub</span><a href={site.github} target="_blank" rel="noopener noreferrer">github.com/garvg4278<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><span class="mono dim">Resume</span><a href={site.resume} download>Download PDF</a></li>
+        <li><span class="mono dim">Location</span><span>{site.location}. {site.relocation}</span></li>
+      </ul>
+      <div class="prose">
+        <p>Open to DevOps internships and entry-level roles, backend engineering roles, open-source collaboration and freelance projects. If you are building something where deployment quality and reliability matter, write to me with a line or two about the team and the role.</p>
+      </div>
+    </div>
+    <ContactForm />
+  </section>
+</Base>
+
+<style>
+  .ch { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: center; }
+  .ch__scene { aspect-ratio: 1; width: min(100%, 360px); justify-self: end; }
+  .cb { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr); gap: clamp(2rem, 5vw, 4.5rem); padding-bottom: var(--section); align-items: start; }
+  .cb__info { display: grid; gap: 2rem; }
+  .methods { border-top: 1px solid var(--line); }
+  .methods li { display: grid; grid-template-columns: 6rem 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .methods a { font-size: 1.1rem; word-break: break-word; }
+  .methods__val { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; }
+  @media (max-width: 900px) {
+    .ch, .cb { grid-template-columns: 1fr; }
+    .ch__scene { width: min(60vw, 260px); justify-self: start; }
+  }
+</style>
+
+<script>
+  import { initPageScene } from '../scripts/features/page-scene.js';
+  initPageScene('.ch__scene', 'lattice');
+</script>

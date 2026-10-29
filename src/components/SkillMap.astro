@@ -1,0 +1,92 @@
+---
+import { skillGroups, levelInfo } from '../data/skills';
+import { projects } from '../data/projects';
+import { findProject } from '../lib/projects.js';
+import { credBySlug } from '../data/credentials';
+---
+<div class="sm" data-skillmap>
+  <div class="sm__bar" role="group" aria-label="Filter by depth of experience">
+    <button type="button" data-f="all" aria-pressed="true">All</button>
+    {(Object.keys(levelInfo) as (keyof typeof levelInfo)[]).map((k) => (
+      <button type="button" data-f={k} aria-pressed="false"><span aria-hidden="true">{levelInfo[k].glyph}</span> {levelInfo[k].label}</button>
+    ))}
+  </div>
+  <dl class="sm__legend">
+    {(Object.keys(levelInfo) as (keyof typeof levelInfo)[]).map((k) => (
+      <div><dt><span aria-hidden="true">{levelInfo[k].glyph}</span> {levelInfo[k].label}</dt><dd class="dim">{levelInfo[k].meaning}</dd></div>
+    ))}
+  </dl>
+
+  {skillGroups.map((g) => (
+    <section class="sg" data-group aria-labelledby={`sg-${g.id}`} data-reveal>
+      <header>
+        <h2 id={`sg-${g.id}`}>{g.title}</h2>
+        <p class="dim">{g.blurb}</p>
+      </header>
+      <ul class="sg__list">
+        {g.skills.map((s) => (
+          <li data-level={s.level}>
+            <details class="sk">
+              <summary>
+                <span class="sk__glyph" aria-hidden="true">{levelInfo[s.level].glyph}</span>
+                <span class="sk__name">{s.name}</span>
+                <span class="sk__lvl mono">{levelInfo[s.level].label}</span>
+              </summary>
+              <div class="sk__more">
+                <p class="dim">{s.note}</p>
+                {(s.projects || s.credential) && (
+                  <p class="sk__ev mono">
+                    <span class="dim">Evidence:</span>
+                    {(s.projects || []).map((slug) => <a href={`/projects/${slug}/`}>{findProject(projects, slug).name}</a>)}
+                    {s.credential && <a href={`/education/#${s.credential}`}>{credBySlug(s.credential).title}</a>}
+                  </p>
+                )}
+              </div>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+  <p class="sm__empty dim" hidden>No skills at this level.</p>
+</div>
+
+<style>
+  .sm { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
+  .sm__bar { display: flex; flex-wrap: wrap; gap: 0.5rem; position: sticky; top: calc(var(--nav-h) + 0.5rem); z-index: 5; padding: 0.6rem; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(10px); border: 1px solid var(--line); border-radius: var(--r-md); width: fit-content; max-width: 100%; }
+  .sm__bar button { min-height: 44px; padding: 0.45rem 1rem; background: transparent; border: 1px solid transparent; border-radius: var(--r-sm); color: var(--text-dim); transition: background var(--t-fast), color var(--t-fast), border-color var(--t-fast); }
+  .sm__bar button:hover { color: var(--text); border-color: var(--line); }
+  .sm__bar button[aria-pressed='true'] { background: var(--surface-2); color: var(--text); border-color: var(--accent); }
+  .sm__legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem 2rem; margin: 0; font-size: 0.92rem; }
+  .sm__legend dt { font-weight: 560; margin-bottom: 0.15rem; }
+  .sm__legend dd { margin: 0; }
+  .sg { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: clamp(1.5rem, 4vw, 4rem); padding-top: clamp(1.5rem, 3vw, 2.5rem); border-top: 1px solid var(--line); }
+  .sg header { align-self: start; position: sticky; top: calc(var(--nav-h) + 5rem); display: grid; gap: 0.6rem; }
+  .sg h2 { font-size: clamp(1.9rem, 3vw, 2.6rem); }
+  .sg__list { display: grid; }
+  .sg__list li { border-bottom: 1px solid var(--line); }
+  .sg__list li[hidden] { display: none; }
+  .sk summary { display: grid; grid-template-columns: 1.4rem 1fr auto; align-items: center; gap: 0.75rem; padding: 1rem 0.25rem; cursor: pointer; list-style: none; min-height: 56px; transition: background var(--t-fast), padding var(--t-med) var(--ease); }
+  .sk summary::-webkit-details-marker { display: none; }
+  .sk summary:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); padding-left: 0.75rem; }
+  .sk__glyph { color: var(--accent); }
+  .sk__name { font-weight: 540; }
+  .sk__lvl { color: var(--text-dim); }
+  .sk[open] summary { background: color-mix(in srgb, var(--aubergine) 25%, transparent); padding-left: 0.75rem; }
+  .sk__more { padding: 0.25rem 0.75rem 1.25rem 2.6rem; display: grid; gap: 0.75rem; max-width: 60ch; }
+  .sk__ev { display: flex; flex-wrap: wrap; gap: 0.4rem 0.75rem; }
+  .sk__ev a { color: var(--accent); }
+  @media (max-width: 860px) {
+    .sm__legend { grid-template-columns: 1fr; }
+    .sg { grid-template-columns: 1fr; }
+    .sg header { position: static; }
+    .sk summary { grid-template-columns: 1.4rem 1fr; }
+    .sk__lvl { grid-column: 2; }
+    .sk__more { padding-left: 0.75rem; }
+  }
+</style>
+
+<script>
+  import { initSkillFilter } from '../scripts/features/skill-filter.js';
+  initSkillFilter();
+</script>

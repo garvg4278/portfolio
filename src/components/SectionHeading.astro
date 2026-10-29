@@ -1,0 +1,8 @@
+---
+const { title, lead, as: Tag = 'h2', id } = Astro.props;
+---
+<div class="sec-head" data-reveal>
+  <span class="slabs" aria-hidden="true"><i></i><i></i><i></i></span>
+  <Tag id={id}>{title}</Tag>
+  {lead && <p class="lead">{lead}</p>}
+</div>

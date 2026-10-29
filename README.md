@@ -1,135 +1,110 @@
-# 📌 Garv Gupta — Portfolio Website
+# Garv Gupta — Portfolio
 
-A fully responsive and modern portfolio built using **HTML**, **CSS**, and **vanilla JavaScript**, showcasing my background in **Cybersecurity**, **DevOps**, and **Data Analysis**.
+A 3D developer portfolio for Garv Gupta (B.E. Computer Science Engineering, Chandigarh University, 2026; DevOps and cloud engineering).
+Built with **Astro** (static output), **Three.js** (lazy-loaded scenes) and plain CSS. Served from an **nginx** container.
 
-This site highlights my projects, academic journey, skills, and certifications — built with performance, clarity, and recruiter-friendly UX in mind.
+Live: https://garv-gupta-portfolio.bytexl.live
 
----
+## Pages
 
-## 🚀 Highlights of the Website
+| Route | Purpose |
+| --- | --- |
+| `/` | Hero with an interactive 3D layer stack, direction, three featured projects, skills, credentials, achievements, qualities, contact call to action |
+| `/about/` | Biography, professional qualities with evidence, timeline |
+| `/projects/` | Filterable grid of 12 projects (consistent card system) |
+| `/projects/<slug>/` | One page per project: problem, interactive architecture flow, approach, and every case-study section that has content |
+| `/skills/` | Skill map by depth (hands-on, working knowledge, learning), each linked to evidence |
+| `/education/` | Degree (CGPA 7.68/10) and 10 credentials (cloud, DevOps, cybersecurity, SQL, programming) with type labels, verification links and a certificate viewer |
+| `/contact/` | Contact details and a form (mailto fallback, or direct submission if configured) |
 
-- ⚡ Fast, lightweight, and framework-free
-- 🌑 Modern dark UI design
-- 🎯 Recruiter-friendly layout and structure
-- ✨ Smooth animations and responsive UI
-- 🧭 Mobile-first navigation system
-- 🧪 Certification modal pop-ups
-- 🗺 Embedded Google Map showing current university location
-- 🔒 Semantic HTML + accessibility enhancements
+## Run locally
 
----
-
-## 📁 File Structure
-
-```
-
-portfolio/
-│
-├── index.html
-├── about.html
-├── education.html
-├── projects.html
-├── skills.html
-├── contact.html
-│
-├── css/
-│   └── style.css
-│
-├── js/
-│   └── main.js
-│
-├── assets/
-│
-└── README.md
-
-````
-
----
-
-## 🧪 Run Locally
-
-🔹 **Directly Open:**
-
-Just open `index.html` in any browser.
-
-🔹 **Recommended (Local Server):**
-
-Python:
-```bash
-python -m http.server 8000
-````
-
-Node.js (`http-server`):
+Requires Node 22+.
 
 ```bash
-npm install -g http-server
-http-server
+npm ci
+npm run dev        # http://localhost:4321
+npm run build      # outputs ./dist
+npm run preview    # serve ./dist
+npm run lint         # ESLint
+npm run typecheck    # astro check (TypeScript)
+npm test             # unit tests for the logic layer
+npm run check:links  # after a build: checks every internal link, asset and #anchor
+npm run verify       # all of the above plus a production build
 ```
 
----
+Browser and server checks (need Playwright, nginx and `axe-core` locally): `python3 scripts/qa-browser.py` (also `THEME=light`), `python3 scripts/qa-interactions.py`, `python3 scripts/qa-a11y.py` and `python3 scripts/qa-nginx.py`.
 
-## 🌍 Deployment (GitHub Pages)
+In headless browsers without a GPU the 3D scene deliberately falls back to a static poster. Add `?scene=force` to the URL to force WebGL.
 
-1. Push to GitHub:
+## Update content (no layout changes needed)
+
+| What | File |
+| --- | --- |
+| Name, links, intro, hero layers | `src/data/site.ts` (env-driven values come from `src/config/env.ts`) |
+| Projects and case studies | `src/data/projects.ts` (types in `src/types/index.ts`) |
+| Skills and depth levels | `src/data/skills.ts` |
+| Certificates | `src/data/credentials.ts` (+ images via `scripts/optimize-images.py`) |
+| Qualities, education entries | `src/data/about.ts` |
+| Colours, type, spacing, dark and light themes | `src/styles/global.css` (palette constants plus semantic tokens per theme) |
+
+A project page shows only the sections that exist in its data entry. Add `contribution`, `challenges`, `decisions`, `verification`, `results` or `limitations` and the section appears. Add `repo` or `live` only with real URLs.
+
+Regenerate generated assets:
 
 ```bash
-git add .
-git commit -m "Deploy portfolio"
-git push origin main
+python3 scripts/build-resume.py   # starter resume PDF from site facts (replace with your own if you prefer)
+python3 scripts/build-og.py       # social preview image public/og.png
+python3 scripts/build-icons.py    # favicon.ico, apple-touch-icon and app icons from public/favicon.svg
+python3 scripts/optimize-images.py <folder-of-original-jpgs>
 ```
 
-2. Go to **Settings → Pages**
-3. Select:
-   **Deploy from branch → main → /root**
-4. Wait for it to build
+## Contact form
 
-Your site will be live at:
-
-```
-https://username.github.io/portfolio/
-```
-
----
-
-## 🔧 Updating Content
-
-| Area           | File to Edit                       |
-| -------------- | ---------------------------------- |
-| Projects       | `projects.html`                    |
-| Skills         | `skills.html`                      |
-| Certifications | `js/main.js` (`certificationInfo`) |
-| Map / Contact  | `contact.html`                     |
-| Styling        | `css/style.css`                    |
-| Animations     | `js/main.js`                       |
-
----
-
-## 📌 Future Improvements
-
-* 🔁 Dark/Light mode toggle
-* 📬 Backend message handling (EmailJS / Formspree)
-* 📝 Add project write-ups / blog section
-
----
-
-## 🐳 Docker Image
-
-You can run the containerized version of this portfolio using Docker:
+Without configuration, the form validates input and opens the visitor's email app with the message filled in. It never claims a message was sent.
+To submit directly, create a form endpoint (for example Formspree), then build with:
 
 ```bash
+PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xxxxxxx npm run build   # see .env.example
+```
+
+The success message appears only after the endpoint returns an OK response. For Docker/CI builds, pass it as a build argument or repository variable. The value is public.
+
+## Docker
+
+```bash
+docker build -t garv-portfolio .
+docker run -p 8080:80 garv-portfolio      # http://localhost:8080
 docker pull ghcr.io/garvg4278/garv-portfolio:latest
-docker run -p 8080:80 ghcr.io/garvg4278/garv-portfolio:latest
 ```
 
-Then open:
-➡ `http://localhost:8080`
+The Dockerfile is multi-stage: Node builds the site and runs the link check, then `nginx:alpine` serves `dist/` using `nginx.conf` (caching, gzip, security headers, 404 page).
 
----
+## CI/CD
 
-## 🔗 Live Link
+`.github/workflows/docker-ci.yml`:
 
-➡ [Garv Gupta's Portfolio](https://garv-gupta-portfolio.bytexl.live/)
+1. **check** (push and pull request): `npm ci`, lint, type-check, unit tests, `npm run build`, `npm run check:links`.
+2. **publish** (push to `main` or manual run): build the image, smoke-test it with `docker run` and `curl`, push `latest` and the 7-character commit SHA to `ghcr.io/garvg4278/garv-portfolio`. Registry login uses the `GHCR_PAT` repository secret, as before.
 
----
+**The workflow publishes an image. It does not deploy it.** Whatever serves https://garv-gupta-portfolio.bytexl.live must be pointed at the new image (or rebuilt from this repository) for the new site to go live. See `docs/DEPLOYMENT.md`.
 
-Built with curiosity, clarity, and continuous improvement ✨
+## Structure
+
+```
+src/data/        content only (projects, skills, credentials, site facts)
+src/types/       shared TypeScript types for the content
+src/config/      env.ts: the only file that reads environment variables
+src/lib/         pure logic, unit-tested (projects, flow layout, validation, store, scene config)
+src/lib/api/     http.js (timeout, normalised errors) and contact.js (submission adapter)
+src/components/  Astro components: markup and scoped CSS only
+src/scripts/     features/ (one module per browser feature) and scene.js (Three.js, lazy chunk)
+src/pages/       routes (file-based), sitemap.xml.ts
+src/styles/      global.css (design tokens and base styles)
+public/          fonts, certificates (WebP), profile photo, resume PDF, icons, og.png, robots.txt
+scripts/         link checker, browser and nginx QA, asset generators
+tests/           node:test unit tests
+docs/            ARCHITECTURE.md, UI_FEATURES.md, CHANGES.md, CONTENT_TODO.md, DEPLOYMENT.md, TESTING.md, QA_CHECKLIST.md
+```
+
+See `docs/ARCHITECTURE.md` for the layering rules, state management, error handling and naming conventions.
