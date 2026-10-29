@@ -1,0 +1,1 @@
+import{t as e}from"./safe.CjNrpLxa.js";import{t}from"./lazy-scene.7BzoCBMa.js";function n(n,r,i={}){e(`scene:${r}`,()=>{let e=document.querySelector(n);e&&t(e,{variant:r,pointerHost:document.body,...i})})}export{n as t};

@@ -1,0 +1,1 @@
+function e(e){let t=e,n=new Set;return{get:()=>t,set(e){let r=t;t={...t,...typeof e==`function`?e(t):e},n.forEach(e=>e(t,r))},subscribe(e){return n.add(e),e(t,t),()=>n.delete(e)}}}export{e as t};

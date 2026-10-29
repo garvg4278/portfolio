@@ -1,0 +1,1 @@
+import{t as e}from"./page-scene.bcfRP905.js";e(`.about-scene`,`orbit`);

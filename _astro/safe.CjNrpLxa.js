@@ -1,0 +1,1 @@
+function e(e,t){try{t()}catch(t){console.error(`[${e}] feature failed to start:`,t)}}export{e as t};
